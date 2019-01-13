@@ -6,8 +6,8 @@ const Document = ({
 }) => (
   <Html lang="en-US">
     <Head>
-      <meta charSet="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Salón bugambilias</title>
     </Head>
     <Body>{children}</Body>
