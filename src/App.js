@@ -1,6 +1,7 @@
 import React from 'react';
-import { Root, Routes } from 'react-static';
+import { Routes } from 'react-static';
 import { Link } from '@reach/router';
+import Root from './Root';
 
 import './app.css';
 
