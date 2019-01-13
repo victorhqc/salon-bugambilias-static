@@ -1,8 +1,8 @@
-import React from 'react'
-import { Root, Routes } from 'react-static'
-import { Link } from '@reach/router'
+import React from 'react';
+import { Root, Routes } from 'react-static';
+import { Link } from '@reach/router';
 
-import './app.css'
+import './app.css';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Routes />
       </div>
     </Root>
-  )
+  );
 }
 
-export default App
+export default App;
