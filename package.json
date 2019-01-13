@@ -13,7 +13,6 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "@smooth-ui/core-sc": "^7.1.1",
-    "axios": "^0.18.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -37,6 +36,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
-    }
+    },
+    "sideEffects": false
   }
 }

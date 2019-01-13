@@ -26,6 +26,7 @@ Document.propTypes = {
 };
 
 export default {
+  bundleAnalyzer: !!process.env.DEBUG,
   getSiteData: () => ({
     title: 'React Static',
   }),
