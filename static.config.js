@@ -1,26 +1,34 @@
-import axios from 'axios';
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const Document = ({
+  Html, Head, Body, children,
+}) => (
+  <Html lang="en-US">
+    <Head>
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Salón bugambilias</title>
+    </Head>
+    <Body>{children}</Body>
+  </Html>
+);
+
+Document.defaultProps = {
+  children: null,
+};
+
+Document.propTypes = {
+  Html: PropTypes.element.isRequired,
+  Head: PropTypes.element.isRequired,
+  Body: PropTypes.element.isRequired,
+  children: PropTypes.node,
+};
 
 export default {
   getSiteData: () => ({
     title: 'React Static',
   }),
   plugins: ['react-static-plugin-styled-components'],
-  getRoutes: async () => {
-    const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts');
-    return [
-      {
-        path: '/blog',
-        getData: () => ({
-          posts,
-        }),
-        children: posts.map(post => ({
-          path: `/post/${post.id}`,
-          component: 'src/containers/Post',
-          getData: () => ({
-            post,
-          }),
-        })),
-      },
-    ];
-  },
+  document: Document,
 };
