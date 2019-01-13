@@ -1,13 +1,12 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   getSiteData: () => ({
     title: 'React Static',
   }),
+  plugins: ['react-static-plugin-styled-components'],
   getRoutes: async () => {
-    const { data: posts } = await axios.get(
-      'https://jsonplaceholder.typicode.com/posts'
-    )
+    const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts');
     return [
       {
         path: '/blog',
@@ -22,6 +21,6 @@ export default {
           }),
         })),
       },
-    ]
+    ];
   },
-}
+};
