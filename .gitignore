@@ -1,3 +1,5 @@
 node_modules
 tmp
 ansible-web
+
+.DS_Store
