@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Root as StaticRoot } from 'react-static';
-import { ThemeProvider } from '@smooth-ui/core-sc';
-import { GlobalStyle } from './components';
+import { ThemeProvider, Normalize } from '@smooth-ui/core-sc';
+// import { GlobalStyle } from './components';
 import theme from './theme';
 
 function Root({ children }) {
   return (
     <StaticRoot>
-      <GlobalStyle />
+      <Normalize />
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </StaticRoot>
   );
