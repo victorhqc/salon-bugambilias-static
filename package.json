@@ -17,6 +17,7 @@
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-hot-loader": "^4.6.5",
+    "react-spring": "^8.0.7",
     "react-static": "^6.3.5",
     "react-static-plugin-styled-components": "^6.1.1",
     "styled-components": "^4.1.3"

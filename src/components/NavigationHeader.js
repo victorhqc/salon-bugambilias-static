@@ -1,45 +1,80 @@
-import React, { useEffect, useRef } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import { animated, useSpring, config } from 'react-spring';
+import logo from '../../public/logo.png';
 
 const NavigationHeader = () => {
-  const headerRef = useRef();
-  useEffect(detectScrolling(headerRef));
+  const [springProps, setSpring] = useSpring(() => ({ scrollPosition: 0, config: config.stiff }));
+
+  // Equivalent to componentDidMount
+  useEffect(() => {
+    const eventListener = scrollEventListener({ setSpring });
+
+    window.addEventListener('scroll', eventListener);
+    // Return a function equals componentWillUnmount
+    return () => window.removeEventListener('scroll', eventListener);
+  }, []); // [] means we don't want it to get called in every re-render.
 
   return (
-    <header ref={headerRef}>
-      <h1>Salón bugambilias</h1>
-    </header>
+    <Fragment>
+      <animated.img alt="Salón bugambilias" src={logo} style={calculateImgStyle(springProps)} />
+      <header>
+        <h1>Salón bugambilias</h1>
+      </header>
+    </Fragment>
   );
 };
 
-let isTicking = false;
-let lastKnownScrollPosition = 0;
+function scrollEventListener({ setSpring }) {
+  let isTicking = false;
+  let scrollPosition = 0;
 
-const detectScrolling = headerRef => () => {
-  const element = headerRef.current;
-  const height = element.clientHeight;
-
-  const scrollEventListener = () => {
-    lastKnownScrollPosition = window.scrollY;
+  return () => {
+    scrollPosition = window.scrollY;
 
     if (!isTicking) {
       window.requestAnimationFrame(() => {
-        scrollElement({ element, lastKnownScrollPosition, height });
+        setSpring({ scrollPosition });
         isTicking = false;
       });
 
       isTicking = true;
     }
   };
+}
 
-  window.addEventListener('scroll', scrollEventListener);
+function calculateImgStyle({ scrollPosition }) {
+  const dynamicPosition = scrollPosition.interpolate(val => {
+    if (val < 100) {
+      return 'absolute';
+    }
 
-  return () => {
-    window.removeEventListener('scroll', scrollEventListener);
+    return 'fixed';
+  });
+
+  const dynamicTransform = scrollPosition.interpolate(val => {
+    if (val < 100) {
+      return 'translate3d(0, 100px, 0) scale(1)';
+    }
+
+    // 100 is for the offset.
+    const scale = (100 - val) / 100 + 1;
+
+    if (scale <= 0.4) {
+      return 'translate3d(-36px, -48px, 0) scale(0.4)';
+    }
+
+    const counterScale = 1 - scale;
+
+    const x = -60 * counterScale;
+    const y = -80 * counterScale;
+
+    return `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
+  });
+
+  return {
+    position: dynamicPosition,
+    transform: dynamicTransform,
   };
-};
-
-const scrollElement = args => {
-  console.log(args);
-};
+}
 
 export default NavigationHeader;

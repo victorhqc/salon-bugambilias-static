@@ -3,7 +3,6 @@ import { Box, Typography } from '@smooth-ui/core-sc';
 
 import { NavigationHeader } from '../components';
 import Slipsum from '../components/Slipsum';
-import logo from '../../public/logo.png';
 
 // C7B334
 
@@ -23,7 +22,6 @@ const Index = () => (
         }}
       >
         <Box width={{ sm: 0.8, md: 0.6 }}>
-          <img alt="Salón bugambilias" src={logo} />
           {/* <Typography variant="display-1">Salón bugambilias</Typography> */}
           <Typography variant="display-4" color="primary">
             Sitio en construcción
