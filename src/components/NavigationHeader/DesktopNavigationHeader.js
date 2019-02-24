@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { animated, useSpring, config } from 'react-spring';
 import { styled } from '@smooth-ui/core-sc';
-import theme from '../theme';
-import logo from '../../public/logo.png';
+import theme from '../../theme';
+import logo from '../../../public/logo.png';
 
-const NavigationHeader = () => {
+const DesktopNavigationHeader = () => {
   const [springProps, setSpring] = useSpring(() => ({ scrollPosition: 0, config: config.stiff }));
 
   // Equivalent to componentDidMount
@@ -142,4 +142,4 @@ const Separator = styled.span`
   margin: 0 15px;
 `;
 
-export default NavigationHeader;
+export default DesktopNavigationHeader;
