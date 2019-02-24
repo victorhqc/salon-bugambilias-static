@@ -1,6 +1,7 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { animated, useSpring, config } from 'react-spring';
-import logo from '../../public/logo.png';
+import logo from '../../../public/logo.png';
+import NavigationMenu from './NavigationMenu';
 
 const NavigationHeader = () => {
   const [springProps, setSpring] = useSpring(() => ({ scrollPosition: 0, config: config.stiff }));
@@ -15,12 +16,9 @@ const NavigationHeader = () => {
   }, []); // [] means we don't want it to get called in every re-render.
 
   return (
-    <Fragment>
+    <NavigationMenu>
       <animated.img alt="Salón bugambilias" src={logo} style={calculateImgStyle(springProps)} />
-      <header>
-        <h1>Salón bugambilias</h1>
-      </header>
-    </Fragment>
+    </NavigationMenu>
   );
 };
 
@@ -43,36 +41,30 @@ function scrollEventListener({ setSpring }) {
 }
 
 function calculateImgStyle({ scrollPosition }) {
-  const dynamicPosition = scrollPosition.interpolate(val => {
-    if (val < 100) {
-      return 'absolute';
-    }
-
-    return 'fixed';
-  });
-
   const dynamicTransform = scrollPosition.interpolate(val => {
+    const imgOffset = -40;
+
     if (val < 100) {
-      return 'translate3d(0, 100px, 0) scale(1)';
+      return `translate3d(0, ${imgOffset}px, 0) scale(1)`;
     }
 
     // 100 is for the offset.
     const scale = (100 - val) / 100 + 1;
 
     if (scale <= 0.4) {
-      return 'translate3d(-36px, -48px, 0) scale(0.4)';
+      return 'translate3d(-36px, -88px, 0) scale(0.4)';
     }
 
     const counterScale = 1 - scale;
 
     const x = -60 * counterScale;
-    const y = -80 * counterScale;
+    const y = -80 * counterScale + imgOffset;
 
     return `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
   });
 
   return {
-    position: dynamicPosition,
+    position: 'fixed',
     transform: dynamicTransform,
   };
 }
