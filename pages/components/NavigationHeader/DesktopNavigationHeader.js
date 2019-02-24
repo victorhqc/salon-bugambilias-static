@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
+import Link from 'next/link';
 import { animated, useSpring, config } from 'react-spring';
 import { styled } from '@smooth-ui/core-sc';
 import theme from '../../theme';
-import logo from '../../../public/logo.png';
 
 const DesktopNavigationHeader = () => {
   const [springProps, setSpring] = useSpring(() => ({ scrollPosition: 0, config: config.stiff }));
@@ -19,14 +19,26 @@ const DesktopNavigationHeader = () => {
   return (
     <Header>
       <Nav style={calculateNavStyle(springProps)}>
-        <a href="/">
-          <animated.img alt="Salón bugambilias" src={logo} style={calculateImgStyle(springProps)} />
-        </a>
-        <NavElement href="/servicios">Servicios</NavElement>
+        <Link href="/">
+          <a>
+            <animated.img
+              alt="Salón bugambilias"
+              src="/static/logo.png"
+              style={calculateImgStyle(springProps)}
+            />
+          </a>
+        </Link>
+        <Link href="/servicios">
+          <NavElement>Servicios</NavElement>
+        </Link>
         <Separator />
-        <NavElement href="/acerca-de">Salón bugambilias</NavElement>
+        <Link href="/acerca-de">
+          <NavElement>Salón bugambilias</NavElement>
+        </Link>
         <Separator />
-        <NavElement href="/contacto">Contáctanos</NavElement>
+        <Link href="/contacto">
+          <NavElement>Contáctanos</NavElement>
+        </Link>
       </Nav>
     </Header>
   );

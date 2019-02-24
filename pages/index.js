@@ -1,13 +1,16 @@
 import React, { Fragment } from 'react';
+import Head from 'next/head';
 import { Box, Typography } from '@smooth-ui/core-sc';
 
-import { NavigationHeader } from '../components';
-import Slipsum from '../components/Slipsum';
-
-// C7B334
+import { NavigationHeader } from './components';
+import Slipsum from './components/Slipsum';
 
 const Index = () => (
   <Fragment>
+    <Head>
+      <title>Salón bugambilias</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
     <NavigationHeader />
     <div>
       <Box
@@ -22,7 +25,6 @@ const Index = () => (
         }}
       >
         <Box width={{ sm: 0.8, md: 0.6 }}>
-          {/* <Typography variant="display-1">Salón bugambilias</Typography> */}
           <Typography variant="display-4" color="primary">
             Sitio en construcción
           </Typography>
