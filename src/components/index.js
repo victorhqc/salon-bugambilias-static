@@ -1,2 +1,2 @@
 // export { default as GlobalStyle } from './GlobalStyle';
-export * from './NavigationHeader';
+export { default as NavigationHeader } from './NavigationHeader';
