@@ -19,7 +19,7 @@ const DesktopImageFader = () => {
       dispatch(nextImage());
     };
 
-    setInterval(interval, 8000);
+    setInterval(interval, 6000);
 
     return () => {
       return clearInterval(interval);
@@ -28,6 +28,7 @@ const DesktopImageFader = () => {
 
   return (
     <Wrapper data-testid="image-fader">
+      <Img data-testid="ssr-placeholder" {...state.visibleImages[0]} />
       {transitions.map(({ item, props, key }) => (
         <Img src={item.src} key={key} style={{ ...props }} />
       ))}
