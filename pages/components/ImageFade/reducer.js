@@ -1,27 +1,16 @@
 export const NEXT_IMAGE = 'visibleImages/next';
-export const INIT_IMAGES = 'visibleImages/init';
-
-export const initImages = images => ({
-  type: INIT_IMAGES,
-  payload: images,
-});
 
 export const nextImage = () => ({
   type: NEXT_IMAGE,
 });
 
-const defaultState = {
-  images: [],
-  visibleImages: [],
-};
+export const getDefaultState = images => ({
+  images,
+  visibleImages: getVisibleImages(images),
+});
 
-export function visibleImagesReducer(state = defaultState, action = {}) {
+export function visibleImagesReducer(state = getDefaultState([]), action = {}) {
   switch (action.type) {
-    case INIT_IMAGES:
-      return {
-        images: action.payload,
-        visibleImages: getVisibleImages(action.payload),
-      };
     case NEXT_IMAGE:
       const newImages = calculateNextImages(state.images);
       return {

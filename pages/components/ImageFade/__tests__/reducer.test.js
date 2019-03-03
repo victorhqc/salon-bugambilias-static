@@ -1,4 +1,4 @@
-import { INIT_IMAGES, NEXT_IMAGE, visibleImagesReducer, initImages, nextImage } from '../reducer';
+import { NEXT_IMAGE, visibleImagesReducer, nextImage, getDefaultState } from '../reducer';
 
 const dog = { src: '🐶', alt: 'Dog' };
 const cat = { src: '🐱', alt: 'Cat' };
@@ -7,13 +7,6 @@ const panda = { src: '🐼', alt: 'Panda' };
 const tiger = { src: '🐯', alt: 'Tiger' };
 
 describe('visibleImages actions', () => {
-  it('Should init images', () => {
-    expect(initImages([dog, cat])).toEqual({
-      type: INIT_IMAGES,
-      payload: [dog, cat],
-    });
-  });
-
   it('Should render next image', () => {
     expect(nextImage()).toEqual({ type: NEXT_IMAGE });
   });
@@ -32,13 +25,10 @@ describe('visibleImagesReducer', () => {
     });
   });
 
-  it('Should set initial pictures', () => {
-    const finalState = [{ type: INIT_IMAGES, payload: [dog, cat, hamster] }].reduce(
-      visibleImagesReducer,
-      defaultInitialState
-    );
+  it('Should return initial state', () => {
+    const initialState = getDefaultState([dog, cat, hamster]);
 
-    expect(finalState).toEqual({
+    expect(visibleImagesReducer(initialState)).toEqual({
       images: [dog, cat, hamster],
       visibleImages: [dog, cat],
     });
