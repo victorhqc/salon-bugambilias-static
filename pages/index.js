@@ -11,7 +11,7 @@ const Index = () => (
       <title>Salón bugambilias</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <NavigationHeader />
+    <NavigationHeader color="#fff" />
     <div>
       <ImageFade />
       {/* <Img src="/static/salon_bugambilias.jpg" alt="Mesa redonda para 10 personas." /> */}

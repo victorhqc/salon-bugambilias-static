@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { animated, useSpring, config } from 'react-spring';
-import { styled } from '@smooth-ui/core-sc';
+import { th, styled } from '@smooth-ui/core-sc';
+import { withTheme } from 'styled-components';
 import theme from '../../theme';
 
-const DesktopNavigationHeader = () => {
+const primaryColor = th('primary');
+
+const DesktopNavigationHeader = ({ color, ...props }) => {
   const [springProps, setSpring] = useSpring(() => ({ scrollPosition: 0, config: config.stiff }));
+  const menuColor = color || primaryColor(props);
 
   // Equivalent to componentDidMount
   useEffect(() => {
@@ -18,7 +23,7 @@ const DesktopNavigationHeader = () => {
 
   return (
     <Header>
-      <Nav style={calculateNavStyle(springProps)}>
+      <Nav style={calculateNavStyle(springProps, menuColor)}>
         <Link href="/">
           <a>
             <animated.img
@@ -44,6 +49,10 @@ const DesktopNavigationHeader = () => {
   );
 };
 
+DesktopNavigationHeader.propTypes = {
+  color: PropTypes.string,
+};
+
 function scrollEventListener({ setSpring }) {
   let isTicking = false;
   let scrollPosition = 0;
@@ -64,7 +73,7 @@ function scrollEventListener({ setSpring }) {
 
 const TOP_OFFSET = 60;
 
-function calculateNavStyle({ scrollPosition }) {
+function calculateNavStyle({ scrollPosition }, defaultColor) {
   const dynamicBackground = scrollPosition.interpolate(val => {
     if (val < TOP_OFFSET) {
       return 'transparent';
@@ -75,7 +84,7 @@ function calculateNavStyle({ scrollPosition }) {
 
   const dynamicColor = scrollPosition.interpolate(val => {
     if (val < TOP_OFFSET) {
-      return theme.primary;
+      return defaultColor;
     }
 
     return '#fff';
@@ -119,7 +128,7 @@ function calculateImgStyle({ scrollPosition }) {
 }
 
 const Header = styled.header`
-  margin-top: 3.5rem;
+  /* margin-top: 3.5rem; */
 `;
 
 const Nav = styled(animated.nav)`
@@ -130,6 +139,7 @@ const Nav = styled(animated.nav)`
   top: 0px;
   width: 100%;
   padding-right: 100px;
+  z-index: 10;
 
   transition-duration: 200ms;
   transition-property: background-color color;
@@ -154,4 +164,4 @@ const Separator = styled.span`
   margin: 0 15px;
 `;
 
-export default DesktopNavigationHeader;
+export default withTheme(DesktopNavigationHeader);
