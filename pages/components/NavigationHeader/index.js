@@ -1,18 +1,21 @@
-import React, { Fragment } from 'react';
-import { Breakpoint } from '@smooth-ui/core-sc';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withUserAgent } from '../UserAgent';
+import { isMobileDevice } from '../../../src/utils';
 
 import DesktopNavigationHeader from './DesktopNavigationHeader';
 import MobileNavigationHeader from './MobileNavigationHeader';
 
-const NavigationHeader = () => (
-  <Fragment>
-    <Breakpoint down="sm">
-      <MobileNavigationHeader />
-    </Breakpoint>
-    <Breakpoint up="sm">
-      <DesktopNavigationHeader />
-    </Breakpoint>
-  </Fragment>
-);
+const NavigationHeader = props => {
+  if (isMobileDevice(props.userAgent)) {
+    return <MobileNavigationHeader {...props} />;
+  }
 
-export default NavigationHeader;
+  return <DesktopNavigationHeader {...props} />;
+};
+
+NavigationHeader.propTypes = {
+  userAgent: PropTypes.shape({}),
+};
+
+export default withUserAgent(NavigationHeader);
