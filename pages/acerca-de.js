@@ -10,9 +10,9 @@ const AcercaDe = () => (
       <title>Salón bugambilias - Acerca de</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <NavigationHeader />
-    <NavigationOffset />
     <Content>
+      <NavigationHeader />
+      <NavigationOffset />
       <PageWrapper>
         <p>Acerca de</p>
       </PageWrapper>

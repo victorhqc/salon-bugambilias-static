@@ -10,8 +10,8 @@ const Index = () => (
       <title>Salón bugambilias</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <NavigationHeader color="#fff" />
     <Content>
+      <NavigationHeader color="#fff" />
       <ImageFade />
       <PageWrapper>
         <section>
