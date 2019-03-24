@@ -30,9 +30,9 @@ const MobileNavigationHeader = () => {
   const [status, setStatus] = useState(CLOSED);
 
   return (
-    <header>
+    <Header>
       <Flex>
-        <img alt="Salón bugambilias" src="/static/logo.png" height="65" />
+        <img alt="Salón bugambilias" src="/static/logo.png" height="50" />
         <ToggleButton setStatus={setStatus} />
       </Flex>
       {status === OPENED ? (
@@ -47,7 +47,7 @@ const MobileNavigationHeader = () => {
           ))}
         </Nav>
       ) : null}
-    </header>
+    </Header>
   );
 };
 
@@ -62,6 +62,10 @@ function toggleOpenMenu(setStatus) {
     });
   };
 }
+
+const Header = styled.header`
+  margin: 15px;
+`;
 
 const Flex = styled.div`
   display: flex;
