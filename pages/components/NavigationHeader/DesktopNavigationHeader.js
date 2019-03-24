@@ -24,7 +24,7 @@ const DesktopNavigationHeader = ({ color, ...props }) => {
   return (
     <Header>
       <Nav style={calculateNavStyle(springProps, menuColor)}>
-        <Link href="/">
+        <Link href="/" passHref>
           <a>
             <animated.img
               alt="Salón bugambilias"
@@ -33,15 +33,15 @@ const DesktopNavigationHeader = ({ color, ...props }) => {
             />
           </a>
         </Link>
-        <Link href="/servicios">
+        <Link href="/servicios" passHref>
           <NavElement>Servicios</NavElement>
         </Link>
         <Separator />
-        <Link href="/acerca-de">
+        <Link href="/acerca-de" passHref>
           <NavElement>Salón bugambilias</NavElement>
         </Link>
         <Separator />
-        <Link href="/contacto">
+        <Link href="/contacto" passHref>
           <NavElement>Contáctanos</NavElement>
         </Link>
       </Nav>
