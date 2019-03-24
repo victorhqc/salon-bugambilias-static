@@ -64,7 +64,7 @@ function toggleOpenMenu(setStatus) {
 }
 
 const Header = styled.header`
-  margin: 15px;
+  margin: 20px;
 `;
 
 const Flex = styled.div`
@@ -75,7 +75,8 @@ const Flex = styled.div`
 const Button = styled.button`
   border: none;
   background: none;
-  margin-right: 10px;
+  margin: 0;
+  padding: 0;
 `;
 
 const OcticonWrapper = styled.div`
@@ -94,7 +95,7 @@ const Nav = styled.nav`
 const NavElement = styled.a`
   display: block;
   width: 100%;
-  padding: 5px;
+  padding: 15px 0;
   border-bottom: 1px solid
     ${({ theme }) =>
       Color(theme.primary)
