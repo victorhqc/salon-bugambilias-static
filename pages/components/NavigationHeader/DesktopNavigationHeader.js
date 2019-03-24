@@ -28,7 +28,7 @@ const DesktopNavigationHeader = ({ color, ...props }) => {
           <a>
             <animated.img
               alt="Salón bugambilias"
-              src="/static/logo.png"
+              src={require('../../../images/logo.png')}
               style={calculateImgStyle(springProps)}
             />
           </a>

@@ -32,7 +32,7 @@ const MobileNavigationHeader = () => {
   return (
     <Header>
       <Flex>
-        <img alt="Salón bugambilias" src="/static/logo.png" height="50" />
+        <img alt="Salón bugambilias" src={require('../../../images/logo.png')} height="50" />
         <ToggleButton setStatus={setStatus} />
       </Flex>
       {status === OPENED ? (
