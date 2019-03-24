@@ -39,9 +39,6 @@ const MobileNavigationHeader = () => {
       </Flex>
       {status === OPENED ? (
         <Nav>
-          <Link href="/" passHref>
-            <NavElement>Inicio</NavElement>
-          </Link>
           {PAGES.map(page => (
             <Link href={page.href} passHref key={page.href}>
               <NavElement>{page.title}</NavElement>

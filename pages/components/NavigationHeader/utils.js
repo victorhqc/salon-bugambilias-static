@@ -1,5 +1,9 @@
 export const PAGES = [
   {
+    href: '/',
+    title: 'Inicio',
+  },
+  {
     href: '/servicios',
     title: 'Servicios',
   },

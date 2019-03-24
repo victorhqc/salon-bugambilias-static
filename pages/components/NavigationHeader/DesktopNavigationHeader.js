@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { animated, useSpring, config } from 'react-spring';
 import { th, styled } from '@smooth-ui/core-sc';
 import { withTheme } from 'styled-components';
 import theme from '../../theme';
+import { PAGES } from './utils';
 
 const primaryColor = th('primary');
 
@@ -44,17 +45,14 @@ const DesktopNavigationHeader = ({ color, ...props }) => {
             />
           </a>
         </Link>
-        <Link href="/servicios" passHref>
-          <NavElement>Servicios</NavElement>
-        </Link>
-        <Separator />
-        <Link href="/acerca-de" passHref>
-          <NavElement>Salón bugambilias</NavElement>
-        </Link>
-        <Separator />
-        <Link href="/contacto" passHref>
-          <NavElement>Contáctanos</NavElement>
-        </Link>
+        {PAGES.map((page, index) => (
+          <Fragment key={page.href}>
+            <Link href={page.href} passHref>
+              <NavElement>{page.title}</NavElement>
+            </Link>
+            {index < PAGES.length - 1 ? <Separator /> : null}
+          </Fragment>
+        ))}
       </Nav>
     </header>
   );
