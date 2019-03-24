@@ -38,7 +38,7 @@ const MobileImageFader = () => {
 };
 
 const Wrapper = styled.div`
-  height: 60vh;
+  height: 45vh;
   position: relative;
   display: block;
 `;
