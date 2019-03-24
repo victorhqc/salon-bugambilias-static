@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { Box, Typography } from '@smooth-ui/core-sc';
 
 import { NavigationHeader, ImageFade } from './components';
-import Slipsum from './components/Slipsum';
 
 const Index = () => (
   <Fragment>
@@ -14,11 +13,29 @@ const Index = () => (
     <NavigationHeader color="#fff" />
     <div>
       <ImageFade />
-      {/* <Img src="/static/salon_bugambilias.jpg" alt="Mesa redonda para 10 personas." /> */}
       <Box width={{ sm: 0.8, md: 0.6 }}>
-        <Typography variant="display-4" color="primary">
-          Sitio en construcción
+        <Typography variant="h1" color="primary">
+          Salón bugambilias
         </Typography>
+        <p>
+          En Salón de eventos Bugambilias, te ofrecemos servicios para realizar todo tipo de eventos
+          como:
+        </p>
+        <ul>
+          <li>Bodas</li>
+          <li>XV Años</li>
+          <li>Bautizos</li>
+          <li>Primeras comuniones</li>
+          <li>Eventos empresariales</li>
+        </ul>
+        <p>
+          Con la mejor calidad de servicio y atención personalizada en todo momento por parte de
+          nuestro personal altamente capacitado para que tu evento sea de tu total satisfacción.
+        </p>
+        <p>
+          Tu experiencia en Salón Bugambilias será inolvidable, dentro de un ambiente maravilloso y
+          único.
+        </p>
         <address>Senda de los recuerdos 119, Milenio III, Querétaro, Qro 776060</address>
         <p>
           Contáctanos en
@@ -28,7 +45,6 @@ const Index = () => (
           O en
           <a href="ventas@bugambilias.party">ventas@bugambilias.party</a>
         </p>
-        <Slipsum />
       </Box>
     </div>
   </Fragment>
