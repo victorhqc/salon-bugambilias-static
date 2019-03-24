@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head';
-import { Box, Typography } from '@smooth-ui/core-sc';
+import { Typography } from '@smooth-ui/core-sc';
 
-import { NavigationHeader, ImageFade } from './components';
+import { NavigationHeader, ImageFade, PageWrapper } from './components';
 
 const Index = () => (
   <Fragment>
@@ -13,7 +13,7 @@ const Index = () => (
     <NavigationHeader color="#fff" />
     <div>
       <ImageFade />
-      <Box width={{ sm: 0.8, md: 0.6 }}>
+      <PageWrapper>
         <Typography variant="h1" color="primary">
           Salón bugambilias
         </Typography>
@@ -45,7 +45,7 @@ const Index = () => (
           O en
           <a href="ventas@bugambilias.party">ventas@bugambilias.party</a>
         </p>
-      </Box>
+      </PageWrapper>
     </div>
   </Fragment>
 );

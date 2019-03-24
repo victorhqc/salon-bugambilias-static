@@ -90,9 +90,18 @@ function calculateNavStyle({ scrollPosition }, defaultColor) {
     return '#fff';
   });
 
+  const dynamicBoxShadow = scrollPosition.interpolate(val => {
+    if (val < TOP_OFFSET) {
+      return 'none';
+    }
+
+    return '0 1px 3px rgba(0, 0, 0, 0.1)';
+  });
+
   return {
     backgroundColor: dynamicBackground,
     color: dynamicColor,
+    boxShadow: dynamicBoxShadow,
   };
 }
 
@@ -107,21 +116,21 @@ function calculateImgStyle({ scrollPosition }) {
     const scale = (TOP_OFFSET - val) / 100 + 1;
 
     if (scale <= 0.35) {
-      // -60 * (1 - 0.35) = 39
+      // -92 * (1 - 0.35) = 59.8
       // -110 * (1 - 0.35) = 71.5
-      return 'translate3d(-39px, -71.5px, 0) scale(0.35)';
+      return 'translate3d(-59.8, -71.5px, 0) scale(0.35)';
     }
 
     const counterScale = 1 - scale;
 
-    const x = -60 * counterScale;
+    const x = -92 * counterScale;
     const y = -110 * counterScale + imgOffset;
 
     return `translate3d(${x}px, ${y}px, 0) scale(${scale})`;
   });
 
   return {
-    left: 0,
+    left: '35px',
     position: 'fixed',
     transform: dynamicTransform,
   };
@@ -138,7 +147,7 @@ const Nav = styled(animated.nav)`
   align-items: center;
   top: 0px;
   width: 100%;
-  padding-right: 100px;
+  padding-right: 50px;
   z-index: 10;
 
   transition-duration: 200ms;
