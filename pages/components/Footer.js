@@ -21,6 +21,7 @@ const FooterComponent = () => {
 
 const Footer = styled.footer`
   background-color: ${({ theme }) => theme.secondary};
+  flex-shrink: 0;
 `;
 
 const Link = styled.a`

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import Head from 'next/head';
 import { Typography } from '@smooth-ui/core-sc';
 
-import { Footer, NavigationHeader, ImageFade, PageWrapper } from './components';
+import { Content, Footer, NavigationHeader, ImageFade, PageWrapper } from './components';
 
 const Index = () => (
   <Fragment>
@@ -11,7 +11,7 @@ const Index = () => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <NavigationHeader color="#fff" />
-    <div>
+    <Content>
       <ImageFade />
       <PageWrapper>
         <section>
@@ -39,8 +39,8 @@ const Index = () => (
           </p>
         </section>
       </PageWrapper>
-      <Footer />
-    </div>
+    </Content>
+    <Footer />
   </Fragment>
 );
 

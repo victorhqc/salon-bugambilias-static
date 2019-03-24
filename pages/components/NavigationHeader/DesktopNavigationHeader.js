@@ -33,7 +33,7 @@ const DesktopNavigationHeader = ({ color, ...props }) => {
   }, []); // [] means we don't want it to get called in every re-render.
 
   return (
-    <Header>
+    <header>
       <Nav style={calculateNavStyle(springProps, menuColor)}>
         <Link href="/" passHref>
           <a>
@@ -56,7 +56,7 @@ const DesktopNavigationHeader = ({ color, ...props }) => {
           <NavElement>Contáctanos</NavElement>
         </Link>
       </Nav>
-    </Header>
+    </header>
   );
 };
 
@@ -143,10 +143,6 @@ function calculateImgStyle({ scrollPosition }) {
     transform: dynamicTransform,
   };
 }
-
-const Header = styled.header`
-  /* margin-top: 3.5rem; */
-`;
 
 const Img = styled(animated.img)`
   position: fixed;

@@ -2,7 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import { ThemeProvider, Normalize } from '@smooth-ui/core-sc';
 import theme from './theme';
-import { UserAgent } from './components';
+import { UserAgent, GlobalStyle } from './components';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -27,6 +27,7 @@ class MyApp extends App {
     return (
       <Container>
         <Normalize />
+        <GlobalStyle />
         <UserAgent.Provider value={userAgent}>
           <ThemeProvider theme={theme}>
             <Component {...pageProps} />
