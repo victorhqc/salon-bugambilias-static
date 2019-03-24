@@ -8,8 +8,19 @@ import theme from '../../theme';
 
 const primaryColor = th('primary');
 
+const getInitialScrollPosition = () => {
+  if (process.browser) {
+    return window.scrollY;
+  }
+
+  return 0;
+};
+
 const DesktopNavigationHeader = ({ color, ...props }) => {
-  const [springProps, setSpring] = useSpring(() => ({ scrollPosition: 0, config: config.stiff }));
+  const [springProps, setSpring] = useSpring(() => ({
+    scrollPosition: getInitialScrollPosition(),
+    config: config.stiff,
+  }));
   const menuColor = color || primaryColor(props);
 
   // Equivalent to componentDidMount
@@ -26,7 +37,7 @@ const DesktopNavigationHeader = ({ color, ...props }) => {
       <Nav style={calculateNavStyle(springProps, menuColor)}>
         <Link href="/" passHref>
           <a>
-            <animated.img
+            <Img
               alt="Salón bugambilias"
               src={require('../../../images/logo.png')}
               style={calculateImgStyle(springProps)}
@@ -106,11 +117,10 @@ function calculateNavStyle({ scrollPosition }, defaultColor) {
 }
 
 function calculateImgStyle({ scrollPosition }) {
+  const imgOffset = 0;
   const dynamicTransform = scrollPosition.interpolate(val => {
-    const imgOffset = 0;
-
     if (val < TOP_OFFSET) {
-      return `translate3d(0, ${imgOffset}px, 0) scale(1)`;
+      return `translate3d(0px, ${imgOffset}px, 0px) scale(1)`;
     }
 
     const scale = (TOP_OFFSET - val) / 100 + 1;
@@ -118,7 +128,7 @@ function calculateImgStyle({ scrollPosition }) {
     if (scale <= 0.35) {
       // -92 * (1 - 0.35) = 59.8
       // -110 * (1 - 0.35) = 71.5
-      return 'translate3d(-59.8, -71.5px, 0) scale(0.35)';
+      return 'translate3d(-59.8px, -71.5px, 0px) scale(0.35)';
     }
 
     const counterScale = 1 - scale;
@@ -130,14 +140,17 @@ function calculateImgStyle({ scrollPosition }) {
   });
 
   return {
-    left: '35px',
-    position: 'fixed',
     transform: dynamicTransform,
   };
 }
 
 const Header = styled.header`
   /* margin-top: 3.5rem; */
+`;
+
+const Img = styled(animated.img)`
+  position: fixed;
+  left: 35px;
 `;
 
 const Nav = styled(animated.nav)`
