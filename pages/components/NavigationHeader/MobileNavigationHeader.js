@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { withRouter } from 'next/router';
 import { styled } from '@smooth-ui/core-sc';
 import Color from 'color';
 import Octicon, { Grabber } from '@githubprimer/octicons-react';
@@ -26,7 +27,7 @@ ToggleButton.propTypes = {
   setStatus: PropTypes.func,
 };
 
-const MobileNavigationHeader = () => {
+const MobileNavigationHeader = ({ router }) => {
   const [status, setStatus] = useState(CLOSED);
 
   return (
@@ -41,13 +42,19 @@ const MobileNavigationHeader = () => {
         <Nav>
           {PAGES.map(page => (
             <Link href={page.href} passHref key={page.href}>
-              <NavElement>{page.title}</NavElement>
+              <NavElement isActive={router.route === page.href}>{page.title}</NavElement>
             </Link>
           ))}
         </Nav>
       ) : null}
     </Header>
   );
+};
+
+MobileNavigationHeader.propTypes = {
+  router: PropTypes.shape({
+    route: PropTypes.string,
+  }),
 };
 
 function toggleOpenMenu(setStatus) {
@@ -102,7 +109,8 @@ const NavElement = styled.a`
         .rgb()
         .string()};
   text-decoration: none;
-  color: inherit;
+  color: ${({ isActive, theme }) => (isActive ? theme.primary : 'inherit')};
+  font-weight: ${({ isActive }) => (isActive ? 'bold' : '')};
 `;
 
-export default MobileNavigationHeader;
+export default withRouter(MobileNavigationHeader);

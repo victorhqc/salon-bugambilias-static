@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { withRouter } from 'next/router';
 import { animated, useSpring, config } from 'react-spring';
 import { th, styled } from '@smooth-ui/core-sc';
 import { withTheme } from 'styled-components';
@@ -17,7 +18,7 @@ const getInitialScrollPosition = () => {
   return 0;
 };
 
-const DesktopNavigationHeader = ({ color, ...props }) => {
+const DesktopNavigationHeader = ({ color, router, ...props }) => {
   const [springProps, setSpring] = useSpring(() => ({
     scrollPosition: getInitialScrollPosition(),
     config: config.stiff,
@@ -48,7 +49,7 @@ const DesktopNavigationHeader = ({ color, ...props }) => {
         {PAGES.map((page, index) => (
           <Fragment key={page.href}>
             <Link href={page.href} passHref>
-              <NavElement>{page.title}</NavElement>
+              <NavElement isActive={page.href === router.route}>{page.title}</NavElement>
             </Link>
             {index < PAGES.length - 1 ? <Separator /> : null}
           </Fragment>
@@ -60,6 +61,9 @@ const DesktopNavigationHeader = ({ color, ...props }) => {
 
 DesktopNavigationHeader.propTypes = {
   color: PropTypes.string,
+  router: PropTypes.shape({
+    route: PropTypes.string,
+  }),
 };
 
 function scrollEventListener({ setSpring }) {
@@ -167,6 +171,8 @@ const NavElement = styled.a`
   line-height: 3.5rem;
   cursor: pointer;
   color: inherit;
+  font-weight: ${({ isActive }) => (isActive ? 'bold' : '')};
+  border-bottom: 2px solid ${({ isActive, theme }) => (isActive ? theme.primary : 'transparemt')};
 `;
 
 const Separator = styled.span`
@@ -180,4 +186,4 @@ const Separator = styled.span`
   margin: 0 15px;
 `;
 
-export default withTheme(DesktopNavigationHeader);
+export default withRouter(withTheme(DesktopNavigationHeader));
