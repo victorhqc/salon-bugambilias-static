@@ -4,6 +4,8 @@ const UserAgent = createContext({
   result: {},
 });
 
+export default UserAgent;
+
 export const withUserAgent = WrappedComponent => {
   return class WithUserAgent extends Component {
     render() {
@@ -15,5 +17,3 @@ export const withUserAgent = WrappedComponent => {
     }
   };
 };
-
-export default UserAgent;

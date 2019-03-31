@@ -1,7 +1,7 @@
 {
     "*.js": [
         "prettier --config ./.prettierrc.json --write",
-        "eslint src --fix",
+        "eslint pages --fix",
         "git add"
     ],
     "package.json": [

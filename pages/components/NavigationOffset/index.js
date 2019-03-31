@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withUserAgent } from '../UserAgent';
-import { isMobileDevice } from '../../../src/utils';
+import { isMobileDevice } from '../../utils';
 
 import DesktopNavigationOffset from './DesktopNavigationOffset';
 import MobileNavigationOffset from './MobileNavigationOffset';

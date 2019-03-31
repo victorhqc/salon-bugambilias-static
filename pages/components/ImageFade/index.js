@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withUserAgent } from '../UserAgent';
 import DesktopImageFader from './DesktopImageFader';
 import MobileImageFader from './MobileImageFader';
-import { isMobileDevice } from '../../../src/utils';
+import { isMobileDevice } from '../../utils';
 
 class ImageFade extends Component {
   render() {

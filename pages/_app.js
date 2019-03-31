@@ -21,6 +21,12 @@ class MyApp extends App {
     return { pageProps, userAgent };
   }
 
+  componentDidMount() {
+    if (process.browser) {
+      console.log('USER AGENT IN BROWSER', this.props.userAgent);
+    }
+  }
+
   render() {
     const { Component, pageProps, userAgent } = this.props;
 
