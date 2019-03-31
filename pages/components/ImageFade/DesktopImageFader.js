@@ -33,6 +33,7 @@ const DesktopImageFader = () => {
       {transitions.map(({ item, props, key }) => (
         <Img src={item.src} key={key} style={{ ...props }} />
       ))}
+      <Img data-testid="next-image" invisible {...state.visibleImages[1]} />
     </Wrapper>
   );
 };
@@ -52,6 +53,7 @@ const Img = styled(animated.img)`
   z-index: 0;
   top: 0;
   left: 0;
+  visibility: ${props => (props.invisible ? 'hidden' : 'visible')};
 
   will-change: opacity;
 `;
