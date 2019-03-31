@@ -1,8 +1,15 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head';
-import { Typography } from '@smooth-ui/core-sc';
+import { Typography, Box } from '@smooth-ui/core-sc';
 
-import { Content, Footer, NavigationHeader, PageWrapper, NavigationOffset } from './components';
+import {
+  Content,
+  Footer,
+  NavigationHeader,
+  PageWrapper,
+  NavigationOffset,
+  Services,
+} from './components';
 
 const AcercaDe = () => (
   <Fragment>
@@ -16,8 +23,13 @@ const AcercaDe = () => (
       <PageWrapper>
         <section>
           <Typography variant="h2" color="primary">
-            Acerca de
+            Te ofrecemos nuestros servicios de paquetes
+            <br />
+            <small>Todo incluido para realizar tu evento.</small>
           </Typography>
+          <Box pt={{ xs: 30, md: 50 }}>
+            <Services />
+          </Box>
         </section>
       </PageWrapper>
     </Content>
