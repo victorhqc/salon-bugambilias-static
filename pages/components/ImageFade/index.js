@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withUserAgent } from '../UserAgent';
-import DesktopImageFader from './DesktopImageFader';
-import MobileImageFader from './MobileImageFader';
+import ImageFader from './ImageFader';
+import { DESKTOP_IMAGES, MOBILE_IMAGES } from './utils';
 
 class ImageFade extends Component {
   render() {
     if (this.props.isMobileDevice) {
-      return <MobileImageFader {...this.props} />;
+      return <ImageFader {...this.props} images={MOBILE_IMAGES} mobile />;
     }
 
-    return <DesktopImageFader {...this.props} />;
+    return <ImageFader {...this.props} images={DESKTOP_IMAGES} />;
   }
 }
 
