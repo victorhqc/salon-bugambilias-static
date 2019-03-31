@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { withUserAgent } from '../UserAgent';
 import DesktopImageFader from './DesktopImageFader';
 import MobileImageFader from './MobileImageFader';
-import { isMobileDevice } from '../../utils';
 
 class ImageFade extends Component {
   render() {
-    if (isMobileDevice(this.props.userAgent)) {
+    if (this.props.isMobileDevice) {
       return <MobileImageFader {...this.props} />;
     }
 
@@ -16,7 +15,7 @@ class ImageFade extends Component {
 }
 
 ImageFade.propTypes = {
-  userAgent: PropTypes.shape({}),
+  isMobileDevice: PropTypes.bool,
 };
 
 export default withUserAgent(ImageFade);

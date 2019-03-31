@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withUserAgent } from '../UserAgent';
-import { isMobileDevice } from '../../utils';
 
 import DesktopNavigationOffset from './DesktopNavigationOffset';
 import MobileNavigationOffset from './MobileNavigationOffset';
 
 const NavigationHeader = props => {
-  if (isMobileDevice(props.userAgent)) {
+  if (props.isMobileDevice) {
     return <MobileNavigationOffset {...props} />;
   }
 
@@ -15,7 +14,7 @@ const NavigationHeader = props => {
 };
 
 NavigationHeader.propTypes = {
-  userAgent: PropTypes.shape({}),
+  isMobileDevice: PropTypes.bool,
 };
 
 export default withUserAgent(NavigationHeader);

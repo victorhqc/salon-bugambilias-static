@@ -11,7 +11,13 @@ export const withUserAgent = WrappedComponent => {
     render() {
       return (
         <UserAgent.Consumer>
-          {userAgent => <WrappedComponent {...this.props} userAgent={userAgent} />}
+          {userAgent => (
+            <WrappedComponent
+              {...this.props}
+              userAgent={userAgent.get()}
+              isMobileDevice={userAgent.isMobileDevice()}
+            />
+          )}
         </UserAgent.Consumer>
       );
     }

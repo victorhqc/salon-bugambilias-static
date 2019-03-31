@@ -1,1 +1,1 @@
-export * from './userAgent';
+export { default as UserAgentSingleton } from './UserAgentSingleton';
