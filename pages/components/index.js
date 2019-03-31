@@ -1,4 +1,5 @@
 export { default as ImageFade } from './ImageFade';
+export { default as ImageGallery } from './ImageGallery';
 export { default as NavigationHeader } from './NavigationHeader';
 export { default as NavigationOffset } from './NavigationOffset';
 export { default as Services } from './Services';

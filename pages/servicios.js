@@ -9,6 +9,7 @@ import {
   PageWrapper,
   NavigationOffset,
   Services,
+  ImageGallery,
 } from './components';
 
 const AcercaDe = () => (
@@ -30,6 +31,9 @@ const AcercaDe = () => (
           <Box pt={{ xs: 30, md: 50 }}>
             <Services />
           </Box>
+        </section>
+        <section>
+          <ImageGallery />
         </section>
       </PageWrapper>
     </Content>
