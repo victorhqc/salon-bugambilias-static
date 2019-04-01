@@ -26,11 +26,13 @@ describe('visibleImages actions', () => {
 describe('imageGalleryReducer', () => {
   const defaultInitialState = {
     images: [dog, cat, hamster, panda, tiger],
+    direction: 'none',
   };
 
   it('Should return default state', () => {
     expect(imageGalleryReducer()).toEqual({
       images: [],
+      direction: 'none',
     });
   });
 
@@ -39,6 +41,7 @@ describe('imageGalleryReducer', () => {
 
     expect(imageGalleryReducer(initialState)).toEqual({
       images: [dog, cat, hamster],
+      direction: 'none',
     });
   });
 
@@ -47,6 +50,7 @@ describe('imageGalleryReducer', () => {
 
     expect(finalState).toEqual({
       images: [cat, hamster, panda, tiger, dog],
+      direction: 'next',
     });
   });
 
@@ -58,6 +62,7 @@ describe('imageGalleryReducer', () => {
 
     expect(finalState).toEqual({
       images: [panda, tiger, dog, cat, hamster],
+      direction: 'next',
     });
   });
 
@@ -67,7 +72,10 @@ describe('imageGalleryReducer', () => {
       defaultInitialState
     );
 
-    expect(finalState).toEqual(defaultInitialState);
+    expect(finalState).toEqual({
+      ...defaultInitialState,
+      direction: 'next',
+    });
   });
 
   it('Should load the previous image', () => {
@@ -75,6 +83,7 @@ describe('imageGalleryReducer', () => {
 
     expect(finalState).toEqual({
       images: [tiger, dog, cat, hamster, panda],
+      direction: 'previous',
     });
   });
 
@@ -86,6 +95,7 @@ describe('imageGalleryReducer', () => {
 
     expect(finalState).toEqual({
       images: [hamster, panda, tiger, dog, cat],
+      direction: 'previous',
     });
   });
 
@@ -98,7 +108,10 @@ describe('imageGalleryReducer', () => {
       previousImage(),
     ].reduce(imageGalleryReducer, defaultInitialState);
 
-    expect(finalState).toEqual(defaultInitialState);
+    expect(finalState).toEqual({
+      ...defaultInitialState,
+      direction: 'previous',
+    });
   });
 
   it('Should load next/previous images', () => {
@@ -107,6 +120,9 @@ describe('imageGalleryReducer', () => {
       defaultInitialState
     );
 
-    expect(finalState).toEqual(defaultInitialState);
+    expect(finalState).toEqual({
+      ...defaultInitialState,
+      direction: 'next',
+    });
   });
 });

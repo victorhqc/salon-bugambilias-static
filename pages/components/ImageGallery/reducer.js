@@ -11,6 +11,7 @@ export const previousImage = () => ({
 
 export const getDefaultState = images => ({
   images,
+  direction: 'none',
 });
 
 export function imageGalleryReducer(state = getDefaultState([]), action = {}) {
@@ -18,10 +19,12 @@ export function imageGalleryReducer(state = getDefaultState([]), action = {}) {
     case NEXT_IMAGE:
       return {
         images: calculateNextImages(state.images),
+        direction: 'next',
       };
     case PREVIOUS_IMAGE:
       return {
         images: calculatePreviousImages(state.images),
+        direction: 'previous',
       };
     default:
       return state;
