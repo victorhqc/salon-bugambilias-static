@@ -4,7 +4,7 @@ import { useTransition } from 'react-spring';
 import { visibleImagesReducer, getDefaultState, nextImage } from './reducer';
 import { Img, Wrapper } from './styled';
 
-const ImageFader = ({ images, mobile }) => {
+const ImageFader = ({ images, isMobileDevice }) => {
   const [state, dispatch] = useReducer(visibleImagesReducer, getDefaultState(images));
   const transitions = useTransition(state.visibleImages[0], item => item.src, {
     from: { opacity: 0 },
@@ -29,17 +29,28 @@ const ImageFader = ({ images, mobile }) => {
 
   return (
     <Wrapper data-testid="image-fader">
-      <Img mobile={mobile} data-testid="ssr-placeholder" {...state.visibleImages[0]} />
+      <Img
+        isMobileDevice={isMobileDevice}
+        data-testid="ssr-placeholder"
+        {...state.visibleImages[0]}
+      />
       {transitions.map(({ item, props, key }) => (
-        <Img mobile={mobile} src={item.src} alt={item.alt} key={key} style={{ ...props }} />
+        <Img
+          isMobileDevice={isMobileDevice}
+          src={item.src}
+          alt={item.alt}
+          key={key}
+          style={{ ...props }}
+        />
       ))}
-      <Img mobile={mobile} data-testid="next-image" invisible="true" {...state.visibleImages[1]} />
+      <Img
+        isMobileDevice={isMobileDevice}
+        data-testid="next-image"
+        invisible="true"
+        {...state.visibleImages[1]}
+      />
     </Wrapper>
   );
-};
-
-ImageFader.defaultProps = {
-  mobile: undefined,
 };
 
 ImageFader.propTypes = {
@@ -49,7 +60,7 @@ ImageFader.propTypes = {
       alt: PropTypes.string,
     })
   ),
-  mobile: PropTypes.bool,
+  isMobileDevice: PropTypes.bool,
 };
 
 export default ImageFader;
