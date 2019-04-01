@@ -4,7 +4,7 @@ import nextIcon from '../../../images/icons/next.svg';
 
 export const Wrapper = styled.div`
   position: relative;
-  height: ${props => props.height || 300}px;
+  height: ${props => props.height || '300px'};
   overflow: hidden;
 `;
 
