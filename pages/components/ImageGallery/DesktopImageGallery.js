@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTransition } from 'react-spring';
 import { imageGalleryReducer, getDefaultState, nextImage, previousImage } from './reducer';
@@ -6,6 +6,21 @@ import { Wrapper, BackwardWrapper, BackwardIcon, ForwardWrapper, ForwardIcon, Im
 
 const DesktopImageGallery = ({ images, height }) => {
   const [state, dispatch] = useReducer(imageGalleryReducer, getDefaultState(images));
+  const [mouseStatus, setMouseStatus] = useState('none');
+
+  useEffect(() => {
+    if (!process.browser) return;
+
+    const automaticNext = setInterval(() => dispatch(nextImage()), 3000);
+
+    if (mouseStatus === 'entered') {
+      clearInterval(automaticNext);
+    }
+
+    return () => {
+      clearInterval(automaticNext);
+    };
+  }, [mouseStatus]);
 
   const nextImageTransitions = useTransition(state.images[0], item => item.src, {
     from: { opacity: 0, transform: 'translate3d(100%, 0, 0)' },
@@ -19,7 +34,12 @@ const DesktopImageGallery = ({ images, height }) => {
   });
 
   return (
-    <Wrapper data-testid="desktop-gallery-wrapper" height={height}>
+    <Wrapper
+      data-testid="desktop-gallery-wrapper"
+      height={height}
+      onMouseEnter={() => setMouseStatus('entered')}
+      onMouseLeave={() => setMouseStatus('left')}
+    >
       <BackwardWrapper onClick={() => dispatch(previousImage())} title="Imagen anterior">
         <BackwardIcon />
       </BackwardWrapper>
@@ -35,6 +55,8 @@ const DesktopImageGallery = ({ images, height }) => {
         previousImageTransitions.map(({ item, key, props }) => (
           <Img style={props} key={key} {...item} />
         ))}
+      {/* Prefetches the next image */}
+      <Img invisible="true" {...state.images[1]} data-testid="prefetched" />
     </Wrapper>
   );
 };
