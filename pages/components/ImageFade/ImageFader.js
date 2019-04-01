@@ -33,13 +33,13 @@ const ImageFader = ({ images, mobile }) => {
       {transitions.map(({ item, props, key }) => (
         <Img mobile={mobile} src={item.src} alt={item.alt} key={key} style={{ ...props }} />
       ))}
-      <Img mobile={mobile} data-testid="next-image" invisible {...state.visibleImages[1]} />
+      <Img mobile={mobile} data-testid="next-image" invisible="true" {...state.visibleImages[1]} />
     </Wrapper>
   );
 };
 
 ImageFader.defaultProps = {
-  mobile: false,
+  mobile: undefined,
 };
 
 ImageFader.propTypes = {

@@ -9,7 +9,7 @@ const PageWrapper = ({ children, ...props }) => (
 );
 
 PageWrapper.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 };
 
 export default PageWrapper;

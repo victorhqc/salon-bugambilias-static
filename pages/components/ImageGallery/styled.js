@@ -53,6 +53,7 @@ export const Img = styled(animated.img)`
   top: 0;
   left: 0;
   text-shadow: 0px 2px 40px #00000020, 0px 2px 5px #00000030;
+  visibility: ${props => (props.invisible ? 'hidden' : 'visible')};
 
   will-change: transform, opacity;
 `;
