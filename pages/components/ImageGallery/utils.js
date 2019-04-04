@@ -5,6 +5,9 @@ const KNOWN_GALLERIES = {
   kids_party: {
     picturesLength: 15,
   },
+  wedding: {
+    picturesLength: 13,
+  },
 };
 
 export function loadGalleryImages(galleryName, type) {

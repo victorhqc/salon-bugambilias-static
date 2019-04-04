@@ -17,7 +17,9 @@ import {
 
 const Servicios = ({ isMobileDevice }) => {
   const height = isMobileDevice ? '300px' : '600px';
-  const images = loadGalleryImages('kids_party', isMobileDevice ? 'mobile' : 'desktop');
+  const imagesType = isMobileDevice ? 'mobile' : 'desktop';
+  const kidsdPartyImages = loadGalleryImages('kids_party', imagesType);
+  const weddingImages = loadGalleryImages('wedding', imagesType);
 
   return (
     <Fragment>
@@ -40,7 +42,16 @@ const Servicios = ({ isMobileDevice }) => {
             </Box>
           </section>
           <section>
-            <ImageGallery images={images} height={height} />
+            <Typography variant="h2">Eventos infantiles</Typography>
+            <Box mt={{ xs: 15, md: 30 }}>
+              <ImageGallery images={kidsdPartyImages} height={height} />
+            </Box>
+          </section>
+          <section>
+            <Typography variant="h2">Bodas</Typography>
+            <Box mt={{ xs: 15, md: 30 }}>
+              <ImageGallery images={weddingImages} height={height} />
+            </Box>
           </section>
         </PageWrapper>
       </Content>
