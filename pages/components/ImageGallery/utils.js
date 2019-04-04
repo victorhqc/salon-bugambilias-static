@@ -8,6 +8,9 @@ const KNOWN_GALLERIES = {
   wedding: {
     picturesLength: 13,
   },
+  premises: {
+    picturesLength: 9,
+  },
 };
 
 export function loadGalleryImages(galleryName, type) {
