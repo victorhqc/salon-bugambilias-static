@@ -1,8 +1,22 @@
 import React, { Fragment } from 'react';
 import Head from 'next/head';
-import { Typography } from '@smooth-ui/core-sc';
+import { styled, Typography, Box } from '@smooth-ui/core-sc';
 
 import { Content, Footer, NavigationHeader, ImageFade, PageWrapper } from './components';
+
+import weddingPicture from '../images/wedding/mobile/wedding_11.jpg';
+import kidsPartyPicture from '../images/kids_party/mobile/kids_party_7.jpg';
+
+const Img = styled.div`
+  background-size: cover;
+  background-image: url(${props => props.src});
+  width: 100%;
+  height: 100%;
+`;
+
+const Flex = styled.div`
+  display: flex;
+`;
 
 const Index = () => (
   <Fragment>
@@ -23,20 +37,42 @@ const Index = () => (
             eventos como:
           </p>
           <ul>
-            <li>Bodas</li>
-            <li>XV Años</li>
-            <li>Bautizos</li>
-            <li>Primeras comuniones</li>
-            <li>Eventos empresariales</li>
+            <li>
+              <b>Bodas</b>
+            </li>
+            <li>
+              <b>XV Años</b>
+            </li>
+            <li>
+              <b>Bautizos</b>
+            </li>
+            <li>
+              <b>Primeras comuniones</b>
+            </li>
+            <li>
+              <b>Eventos empresariales</b>
+            </li>
           </ul>
           <p>
             Con la mejor calidad de servicio y atención personalizada en todo momento por parte de
             nuestro personal altamente capacitado para que tu evento sea de tu total satisfacción.
           </p>
-          <p>
+          <Typography variant="h4" color="primary" mb={{ md: '30px', xs: '15px' }}>
             Tu experiencia en Salón Bugambilias será inolvidable, dentro de un ambiente maravilloso
             y único.
-          </p>
+          </Typography>
+          <Flex>
+            <Box
+              mr={{ md: '10px' }}
+              width={{ md: '50%', xs: '100%' }}
+              height={{ md: '400px', xs: '300px' }}
+            >
+              <Img src={weddingPicture} />
+            </Box>
+            <Box width={{ md: '50%', xs: '100%' }} height={{ md: '400px', xs: '300px' }}>
+              <Img src={kidsPartyPicture} />
+            </Box>
+          </Flex>
         </section>
       </PageWrapper>
     </Content>

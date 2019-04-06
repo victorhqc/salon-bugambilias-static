@@ -58,6 +58,18 @@ const Servicios = ({ isMobileDevice }) => {
           </section>
           <section>
             <Typography variant="h2" color="primary" m={supportTextMargin}>
+              Instalaciones
+            </Typography>
+            <Typography as="p" width={{ md: '65%' }}>
+              Nuestro salón de <b>XX metros cuadrados</b> tiene una capacidad para{' '}
+              <b>X personas.</b> Contamos con servicio de meseros profesionales y sistema para DJ.
+            </Typography>
+            <Box mt={{ xs: 15, md: 30 }}>
+              <ImageGallery images={premisesImages} height={height} nextDelay={2000} />
+            </Box>
+          </section>
+          <section>
+            <Typography variant="h2" color="primary" m={supportTextMargin}>
               Eventos infantiles
             </Typography>
             <Typography as="p" width={{ md: '65%' }}>
@@ -78,18 +90,6 @@ const Servicios = ({ isMobileDevice }) => {
             </Typography>
             <Box mt={{ xs: 15, md: 30 }}>
               <ImageGallery images={weddingImages} height={height} nextDelay={1000} />
-            </Box>
-          </section>
-          <section>
-            <Typography variant="h2" color="primary" m={supportTextMargin}>
-              Instalaciones
-            </Typography>
-            <Typography as="p" width={{ md: '65%' }}>
-              Nuestro salón de <b>XX metros cuadrados</b> tiene una capacidad para{' '}
-              <b>X personas.</b> Contamos con servicio de meseros profesionales y sistema para DJ.
-            </Typography>
-            <Box mt={{ xs: 15, md: 30 }}>
-              <ImageGallery images={premisesImages} height={height} nextDelay={2000} />
             </Box>
           </section>
         </PageWrapper>
