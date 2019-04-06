@@ -16,6 +16,7 @@ const Img = styled.div`
 
 const Flex = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const Index = () => (
@@ -63,7 +64,8 @@ const Index = () => (
           </Typography>
           <Flex>
             <Box
-              mr={{ md: '10px' }}
+              pr={{ md: '10px' }}
+              pb={{ xs: '10px', md: 0 }}
               width={{ md: '50%', xs: '100%' }}
               height={{ md: '400px', xs: '300px' }}
             >
