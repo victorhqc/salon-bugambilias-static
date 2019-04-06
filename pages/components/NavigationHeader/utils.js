@@ -4,12 +4,8 @@ export const PAGES = [
     title: 'Inicio',
   },
   {
-    href: '/servicios',
-    title: 'Servicios',
-  },
-  {
-    href: '/acerca-de',
-    title: 'Salón bugambilias',
+    href: '/conocenos',
+    title: 'Conócenos',
   },
   {
     href: '/contacto',
