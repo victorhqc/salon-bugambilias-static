@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { styled, Typography, Box } from '@smooth-ui/core-sc';
@@ -12,6 +12,7 @@ import {
   GoogleMaps,
   withUserAgent,
 } from '../components';
+import { event } from '../utils';
 
 import whatsappLogo from '../images/icons/whatsapp_logo.svg';
 import email from '../images/icons/email.svg';
@@ -30,6 +31,21 @@ const Img = styled.img`
 `;
 
 const Contacto = ({ isMobileDevice }) => {
+  const onWhatsapp = useCallback(() => {
+    event({
+      action: 'contact_type',
+      category: 'Contact',
+      label: 'Whatsapp',
+    });
+  }, []);
+  const onEmail = useCallback(() => {
+    event({
+      action: 'contact_type',
+      category: 'Contact',
+      label: 'Email',
+    });
+  }, []);
+
   return (
     <Fragment>
       <Head>
@@ -50,13 +66,17 @@ const Contacto = ({ isMobileDevice }) => {
           <Box mb={{ md: '20px', xs: '10px' }}>
             <LinkWrapper>
               <Img src={whatsappLogo} alt="Whatsapp Logo" width={60} />
-              <Link href="https://wa.me/5214423138637">442 313 8637</Link>
+              <Link href="https://wa.me/5214423138637" onClick={onWhatsapp}>
+                442 313 8637
+              </Link>
             </LinkWrapper>
           </Box>
           <Box mb={{ md: '20px', xs: '10px' }}>
             <LinkWrapper>
               <Img src={email} alt="Correo electrónico" width={60} />
-              <Link href="ventas@bugambilias.party">ventas@bugambilias.party</Link>
+              <Link href="ventas@bugambilias.party" onClick={onEmail}>
+                ventas@bugambilias.party
+              </Link>
             </LinkWrapper>
           </Box>
           <GoogleMaps />

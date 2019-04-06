@@ -4,3 +4,5 @@ ansible-web
 .next
 
 .DS_Store
+
+.env

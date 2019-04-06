@@ -1,13 +1,23 @@
 const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
+const { parsed: localEnv } = require('dotenv').config();
+const webpack = require('webpack');
 
-module.exports = withPlugins([
+module.exports = withPlugins(
   [
-    optimizedImages,
-    {
-      /* config for next-optimized-images */
-    },
+    [
+      optimizedImages,
+      {
+        /* config for next-optimized-images */
+      },
+    ],
+    // your other plugins here
   ],
+  {
+    webpack(config) {
+      config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
 
-  // your other plugins here
-]);
+      return config;
+    },
+  }
+);

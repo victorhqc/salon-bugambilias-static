@@ -1,14 +1,31 @@
-import React, { useReducer, useState, useEffect } from 'react';
+import React, { useReducer, useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useTransition } from 'react-spring';
 import { withUserAgent } from '../UserAgent';
 import isInScreen from '../isInScreen';
 import { imageGalleryReducer, getDefaultState, nextImage, previousImage } from './reducer';
 import { Wrapper, BackwardWrapper, BackwardIcon, ForwardWrapper, ForwardIcon, Img } from './styled';
+import { event } from '../../utils';
 
 const ImageGallery = ({ images, height, isMobileDevice, nextDelay, isInScreen }) => {
   const [state, dispatch] = useReducer(imageGalleryReducer, getDefaultState(images));
   const [mouseStatus, setMouseStatus] = useState('none');
+  const onForward = useCallback(() => {
+    dispatch(nextImage());
+    event({
+      action: 'gallery_click',
+      category: 'gallery',
+      label: 'Next Image',
+    });
+  }, []);
+  const onPrevious = useCallback(() => {
+    dispatch(previousImage());
+    event({
+      action: 'gallery_click',
+      category: 'gallery',
+      label: 'Previous Image',
+    });
+  }, []);
 
   useEffect(() => {
     if (!process.browser || isMobileDevice) return;
@@ -61,10 +78,10 @@ const ImageGallery = ({ images, height, isMobileDevice, nextDelay, isInScreen })
       onMouseEnter={() => setMouseStatus('entered')}
       onMouseLeave={() => setMouseStatus('left')}
     >
-      <BackwardWrapper onClick={() => dispatch(previousImage())} title="Imagen anterior">
+      <BackwardWrapper onClick={onPrevious} title="Imagen anterior">
         <BackwardIcon />
       </BackwardWrapper>
-      <ForwardWrapper onClick={() => dispatch(nextImage())} title="Siguiente imagen">
+      <ForwardWrapper onClick={onForward} title="Siguiente imagen">
         <ForwardIcon />
       </ForwardWrapper>
       {state.direction === 'none' && <Img {...state.images[0]} />}
