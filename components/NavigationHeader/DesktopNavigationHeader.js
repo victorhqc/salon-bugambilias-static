@@ -5,7 +5,7 @@ import { withRouter } from 'next/router';
 import { animated, useSpring, config } from 'react-spring';
 import { th, styled } from '@smooth-ui/core-sc';
 import { withTheme } from 'styled-components';
-import theme from '../../theme';
+import theme from '../../pages/theme';
 import { PAGES } from './utils';
 
 const primaryColor = th('primary');
@@ -41,7 +41,7 @@ const DesktopNavigationHeader = ({ color, router, ...props }) => {
           <a>
             <Img
               alt="Salón bugambilias"
-              src={require('../../../images/logo.png')}
+              src={require('../../images/logo.png')}
               style={calculateImgStyle(springProps)}
             />
           </a>

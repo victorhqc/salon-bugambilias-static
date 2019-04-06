@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import Head from 'next/head';
 import { styled, Typography, Box } from '@smooth-ui/core-sc';
 
-import { Content, Footer, NavigationHeader, ImageFade, PageWrapper } from './components';
+import { Content, Footer, NavigationHeader, ImageFade, PageWrapper } from '../components';
 
 import weddingPicture from '../images/wedding/mobile/wedding_11.jpg';
 import kidsPartyPicture from '../images/kids_party/mobile/kids_party_7.jpg';

@@ -2,8 +2,8 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import { ThemeProvider, Normalize } from '@smooth-ui/core-sc';
 import theme from './theme';
-import { UserAgent, GlobalStyle } from './components';
-import { UserAgentSingleton } from './utils';
+import { UserAgent, GlobalStyle } from '../components';
+import { UserAgentSingleton } from '../utils';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

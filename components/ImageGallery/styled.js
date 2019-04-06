@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import nextIcon from '../../../images/icons/next.svg';
+import nextIcon from '../../images/icons/next.svg';
 
 export const Wrapper = styled.div`
   position: relative;

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { Typography, styled } from '@smooth-ui/core-sc';
-import { NavigationHeader, Content, PageWrapper, NavigationOffset, Footer } from './components';
+import { NavigationHeader, Content, PageWrapper, NavigationOffset, Footer } from '../components';
 
 class Error extends Component {
   static getInitialProps({ res, err }) {

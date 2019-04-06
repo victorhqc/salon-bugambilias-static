@@ -24,10 +24,10 @@ const images = [
 
 export const DESKTOP_IMAGES = images.map(image => ({
   ...image,
-  src: require(`../../../images/desktop/${image.src}`),
+  src: require(`../../images/desktop/${image.src}`),
 }));
 
 export const MOBILE_IMAGES = images.map(image => ({
   ...image,
-  src: require(`../../../images/mobile/${image.src}`),
+  src: require(`../../images/mobile/${image.src}`),
 }));

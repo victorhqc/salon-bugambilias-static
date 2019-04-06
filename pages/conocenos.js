@@ -13,7 +13,7 @@ import {
   ImageGallery,
   withUserAgent,
   loadGalleryImages,
-} from './components';
+} from '../components';
 
 const ServicesWrapper = styled.div`
   background-color: ${({ theme }) => theme.secondary};

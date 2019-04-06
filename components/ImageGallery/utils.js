@@ -19,7 +19,7 @@ export function loadGalleryImages(galleryName, type) {
   const picturesLength = KNOWN_GALLERIES[galleryName].picturesLength;
   return [...Array(picturesLength).keys()]
     .map(index => {
-      return require(`../../../images/${galleryName}/${type}/${galleryName}_${index + 1}.jpg`);
+      return require(`../../images/${galleryName}/${type}/${galleryName}_${index + 1}.jpg`);
     })
     .map(src => ({
       src,

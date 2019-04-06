@@ -34,7 +34,7 @@ const MobileNavigationHeader = ({ router }) => {
     <Header>
       <Flex>
         <a href="/">
-          <img alt="Salón bugambilias" src={require('../../../images/logo.png')} height="50" />
+          <img alt="Salón bugambilias" src={require('../../images/logo.png')} height="50" />
         </a>
         <ToggleButton setStatus={setStatus} />
       </Flex>

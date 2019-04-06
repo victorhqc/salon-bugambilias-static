@@ -11,7 +11,7 @@ import {
   NavigationOffset,
   GoogleMaps,
   withUserAgent,
-} from './components';
+} from '../components';
 
 import whatsappLogo from '../images/icons/whatsapp_logo.svg';
 import email from '../images/icons/email.svg';
