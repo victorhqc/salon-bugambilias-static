@@ -2,19 +2,23 @@ import React, { useReducer, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useTransition } from 'react-spring';
 import { withUserAgent } from '../UserAgent';
+import isInScreen from '../isInScreen';
 import { imageGalleryReducer, getDefaultState, nextImage, previousImage } from './reducer';
 import { Wrapper, BackwardWrapper, BackwardIcon, ForwardWrapper, ForwardIcon, Img } from './styled';
 
-const ImageGallery = ({ images, height, isMobileDevice }) => {
+const ImageGallery = ({ images, height, isMobileDevice, nextDelay, isInScreen }) => {
   const [state, dispatch] = useReducer(imageGalleryReducer, getDefaultState(images));
   const [mouseStatus, setMouseStatus] = useState('none');
 
   useEffect(() => {
     if (!process.browser || isMobileDevice) return;
 
-    let automaticNextImage = setInterval(() => dispatch(nextImage()), 6000);
+    let automaticNextImage = setInterval(() => {
+      setTimeout(() => dispatch(nextImage()), nextDelay || 0);
+    }, 6000);
 
-    if (mouseStatus === 'entered') {
+    // Disable automatic next image when mouse is over the gallery or is not in the screen.
+    if (mouseStatus === 'entered' || !isInScreen) {
       clearInterval(automaticNextImage);
     }
 
@@ -37,7 +41,7 @@ const ImageGallery = ({ images, height, isMobileDevice }) => {
 
       clearInterval(automaticNextImage);
     };
-  }, [mouseStatus]);
+  }, [mouseStatus, isInScreen]);
 
   const nextImageTransitions = useTransition(state.images[0], item => item.src, {
     from: { opacity: 0, transform: 'translate3d(100%, 0, 0)' },
@@ -87,6 +91,8 @@ ImageGallery.propTypes = {
   ),
   height: PropTypes.string,
   isMobileDevice: PropTypes.bool,
+  isInScreen: PropTypes.bool,
+  nextDelay: PropTypes.number,
 };
 
-export default withUserAgent(ImageGallery);
+export default withUserAgent(isInScreen(ImageGallery));

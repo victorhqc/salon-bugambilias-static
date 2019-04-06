@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   position: relative;
   height: ${props => props.height || '300px'};
   overflow: hidden;
+  box-shadow: 0 5px 8px -6px #454545;
 `;
 
 const GalleryButton = styled.button`
