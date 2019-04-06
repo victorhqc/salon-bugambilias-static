@@ -33,10 +33,10 @@ export const SERVICES = [
     src: 'bathroom.svg',
     title: 'Baños separados para damas y caballeros',
   },
-  {
-    src: 'wifi.svg',
-    title: 'Estacionamiento y servicio de WiFi',
-  },
+  // {
+  //   src: 'wifi.svg',
+  //   title: 'Estacionamiento y servicio de WiFi',
+  // },
 ].map(service => ({
   ...service,
   src: require(`../../../images/icons/${service.src}`),
