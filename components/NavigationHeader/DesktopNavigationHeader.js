@@ -5,7 +5,7 @@ import { withRouter } from 'next/router';
 import { animated, useSpring, config } from 'react-spring';
 import { th, styled } from '@smooth-ui/core-sc';
 import { withTheme } from 'styled-components';
-import theme from '../../pages/theme';
+import { theme } from '../../utils';
 import { PAGES } from './utils';
 
 const primaryColor = th('primary');

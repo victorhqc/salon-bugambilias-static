@@ -1,0 +1,20 @@
+service: salon-bugambilias
+provider:
+  name: aws
+  runtime: nodejs8.10
+  profile: default
+  region: us-west-1
+  stage: prod
+
+plugins:
+  - serverless-nextjs-plugin
+
+custom:
+  defaultStage: prod
+  serverless-nextjs:
+    nextConfigDir: "./"
+    assetsBucketName: "salon-bugambilias"
+
+package:
+  exclude:
+    - ./**

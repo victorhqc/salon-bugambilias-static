@@ -2,9 +2,8 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import Router from 'next/router';
 import { ThemeProvider, Normalize } from '@smooth-ui/core-sc';
-import theme from './theme';
 import { UserAgent, GlobalStyle } from '../components';
-import { UserAgentSingleton, pageview } from '../utils';
+import { UserAgentSingleton, pageview, theme } from '../utils';
 
 Router.events.on('routeChangeComplete', url => pageview(url));
 

@@ -19,5 +19,7 @@ module.exports = withPlugins(
 
       return config;
     },
+    target: 'serverless',
+    assetPrefix: 'https://salon-bugambilias.s3.amazonaws.com',
   }
 );

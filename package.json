@@ -5,8 +5,10 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "lambda": "NODE_ENV=production node server.js",
     "eslint": "eslint src",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "rm -rf .next/ && serverless deploy --aws-profile=salon-bugambilias"
   },
   "dependencies": {
     "@githubprimer/octicons-react": "^8.5.0",
@@ -39,7 +41,8 @@
     "jest": "^24.1.0",
     "lint-staged": "^8.1.0",
     "prettier": "^1.15.3",
-    "serve": "10.1.1"
+    "serve": "10.1.1",
+    "serverless-nextjs-plugin": "^1.5.1"
   },
   "husky": {
     "hooks": {

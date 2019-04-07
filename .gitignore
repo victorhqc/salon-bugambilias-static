@@ -2,6 +2,7 @@ node_modules
 tmp
 ansible-web
 .next
+.serverless
 
 .DS_Store
 
