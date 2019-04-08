@@ -8,7 +8,10 @@
     "lambda": "NODE_ENV=production node server.js",
     "eslint": "eslint src",
     "test": "jest",
-    "deploy": "rm -rf .next/ && serverless deploy --aws-profile=salon-bugambilias"
+    "deploy": "rm -rf .next/ && serverless deploy --aws-profile=salon-bugambilias",
+    "deployIndex": "serverless deploy function --function indexPage",
+    "deployConocenos": "serverless deploy function --function conocenosPage",
+    "deployContacto": "serverless deploy function --function contactoPage"
   },
   "dependencies": {
     "@githubprimer/octicons-react": "^8.5.0",

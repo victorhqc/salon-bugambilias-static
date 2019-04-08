@@ -61,8 +61,8 @@ const Servicios = ({ isMobileDevice }) => {
               Instalaciones
             </Typography>
             <Typography as="p" width={{ md: '65%' }}>
-              Nuestro salón de <b>XX metros cuadrados</b> tiene una capacidad para{' '}
-              <b>X personas.</b> Contamos con servicio de meseros profesionales y sistema para DJ.
+              Nuestro salón de <b>854 metros cuadrados</b> tiene un cupo máximo para{' '}
+              <b>200 personas.</b> Contamos con servicio de meseros profesionales y sistema para DJ.
             </Typography>
             <Box mt={{ xs: 15, md: 30 }}>
               <ImageGallery images={premisesImages} height={height} nextDelay={2000} />
