@@ -74,8 +74,8 @@ const Contacto = ({ isMobileDevice }) => {
           <Box mb={{ md: '20px', xs: '10px' }}>
             <LinkWrapper>
               <Img src={email} alt="Correo electrónico" width={60} />
-              <Link href="ventas@bugambilias.party" onClick={onEmail}>
-                ventas@bugambilias.party
+              <Link href="eventosbugambilias19@gmail.com" onClick={onEmail}>
+                eventosbugambilias19@gmail.com
               </Link>
             </LinkWrapper>
           </Box>

@@ -12,7 +12,7 @@ const FooterComponent = () => {
         </p>
         <p>
           <b>Correo electrónico: </b>
-          <Link href="ventas@bugambilias.party">ventas@bugambilias.party</Link>
+          <Link href="eventosbugambilias19@gmail.com">eventosbugambilias19@gmail.com</Link>
         </p>
       </Box>
     </Footer>
