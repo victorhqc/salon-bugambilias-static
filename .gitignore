@@ -3,6 +3,7 @@ tmp
 ansible-web
 .next
 .serverless
+sls-next-build
 
 .DS_Store
 

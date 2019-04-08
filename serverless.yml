@@ -2,7 +2,7 @@ service: salon-bugambilias
 provider:
   name: aws
   runtime: nodejs8.10
-  profile: default
+  profile: salon-bugambilias
   region: us-west-1
   stage: prod
 
