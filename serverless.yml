@@ -1,9 +1,9 @@
-service: salon-bugambilias
+service: bugambilias-party
 provider:
   name: aws
   runtime: nodejs8.10
-  profile: salon-bugambilias
-  region: us-west-1
+  profile: bugambilias-party
+  region: us-east-1
   stage: prod
 
 plugins:
@@ -13,7 +13,7 @@ custom:
   defaultStage: prod
   serverless-nextjs:
     nextConfigDir: "./"
-    assetsBucketName: "salon-bugambilias"
+    assetsBucketName: "bugambilias-party"
 
 package:
   exclude:
