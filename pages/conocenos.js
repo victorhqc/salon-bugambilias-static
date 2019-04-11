@@ -20,7 +20,7 @@ const ServicesWrapper = styled.div`
   margin: ${({ size }) => (size === 'big' ? '0 -50px' : '0 -20px')};
 `;
 
-const supportTextMargin = { md: '25px 0', xs: '10px 0' };
+const supportTextMargin = { xs: '50px 0 0 0' };
 
 const Servicios = ({ isMobileDevice }) => {
   const height = isMobileDevice ? '300px' : '600px';
