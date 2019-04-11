@@ -12,7 +12,9 @@ const FooterComponent = () => {
         </p>
         <p>
           <b>Correo electrónico: </b>
-          <Link href="eventosbugambilias19@gmail.com">eventosbugambilias19@gmail.com</Link>
+          <Link href="mailto:eventosbugambilias19@gmail.com?subject=Pregunta sobre Salón Bugambilias">
+            eventosbugambilias19@gmail.com
+          </Link>
         </p>
       </Box>
     </Footer>
