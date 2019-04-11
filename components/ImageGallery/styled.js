@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 const GalleryButton = styled.button`
   position: absolute;
   width: 15%;
+  min-width: 50px;
   height: 100%;
   top: 0;
   z-index: 1;
@@ -21,9 +22,11 @@ const GalleryButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
 `;
 
 const Icon = styled.div`
+  background-position: 0 0;
   background-image: url(${nextIcon});
   background-size: cover;
   width: 50px;
