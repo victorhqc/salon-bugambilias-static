@@ -1,8 +1,10 @@
+import { isProduction } from './env';
+
 export const GA_TRACKING_ID = 'UA-77111108-3';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = url => {
-  if (process.env.NODE_ENV !== 'production') {
+  if (!isProduction()) {
     console.log({
       config: {
         page_path: url,
@@ -19,7 +21,7 @@ export const pageview = url => {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 export const event = ({ action, category, label, value }) => {
-  if (process.env.NODE_ENV !== 'production') {
+  if (!isProduction()) {
     console.log({
       event: {
         event_category: category,
