@@ -4,7 +4,7 @@ import { styled, Typography, Box } from '@smooth-ui/core-sc';
 
 import { Content, Footer, NavigationHeader, ImageFade, PageWrapper } from '../components';
 
-import weddingPicture from '../images/wedding/mobile/wedding_11.jpg';
+import premisesPicture from '../images/premises/mobile/premises_1.jpg';
 import kidsPartyPicture from '../images/kids_party/mobile/kids_party_7.jpg';
 
 const Img = styled.div`
@@ -69,7 +69,7 @@ const Index = () => (
               width={{ md: '50%', xs: '100%' }}
               height={{ md: '400px', xs: '300px' }}
             >
-              <Img src={weddingPicture} />
+              <Img src={premisesPicture} />
             </Box>
             <Box width={{ md: '50%', xs: '100%' }} height={{ md: '400px', xs: '300px' }}>
               <Img src={kidsPartyPicture} />
