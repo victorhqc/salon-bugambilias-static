@@ -3,12 +3,12 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "next start",
     "lambda": "NODE_ENV=production node server.js",
     "eslint": "eslint src",
     "test": "jest",
-    "deploy": "rm -rf .next/ && serverless deploy --aws-profile=bugambilias-party",
+    "deploy": "rm -rf .next/ && NODE_ENV=production serverless deploy --aws-profile=bugambilias-party",
     "deployIndex": "serverless deploy function --function indexPage",
     "deployConocenos": "serverless deploy function --function conocenosPage",
     "deployContacto": "serverless deploy function --function contactoPage"
