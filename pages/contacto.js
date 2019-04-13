@@ -2,6 +2,7 @@ import React, { Fragment, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { styled, Typography, Box } from '@smooth-ui/core-sc';
+import NextSeo from 'next-seo';
 
 import {
   Content,
@@ -48,6 +49,17 @@ const Contacto = ({ isMobileDevice }) => {
 
   return (
     <Fragment>
+      <NextSeo
+        config={{
+          title: 'Salón bugambilias, contáctanos',
+          description: `
+Llámanos de lunes a viernes por teléfono o whatsapp al 442 313 8637 o por correo electrónico
+eventosbugambilias19@gmail.com.
+
+Estamos ubicados en Senda de los recuerdos 119, Milenio III, Querétaro, Qro 776060
+`,
+        }}
+      />
       <Head>
         <title>Salón bugambilias - Contáctanos</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -60,7 +72,7 @@ const Contacto = ({ isMobileDevice }) => {
             Contáctanos
           </Typography>
           <p>
-            Llámanos de lunes a viernes de <i>8:00am a 7:00pm</i> o envíanos un mensaje en Whatsapp
+            Llámanos de lunes a viernes de <i>9:00am a 7:00pm</i> o envíanos un mensaje en Whatsapp
             o correo electrónico.
           </p>
           <Box mb={{ md: '20px', xs: '10px' }}>

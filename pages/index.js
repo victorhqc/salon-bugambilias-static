@@ -1,11 +1,16 @@
 import React, { Fragment } from 'react';
-import Head from 'next/head';
 import { styled, Typography, Box } from '@smooth-ui/core-sc';
+import NextSeo, { LocalBusinessJsonLd } from 'next-seo';
 
 import { Content, Footer, NavigationHeader, ImageFade, PageWrapper } from '../components';
 
-import premisesPicture from '../images/premises/mobile/premises_1.jpg';
-import kidsPartyPicture from '../images/kids_party/mobile/kids_party_7.jpg';
+import PREMISES_PICTURE from '../images/premises/mobile/premises_1.jpg';
+import KIDS_PARTY_PICTURE from '../images/kids_party/mobile/kids_party_7.jpg';
+import WEDDING_PICTURE from '../images/wedding/mobile/wedding_4.jpg';
+
+const PREMISES_ALT = 'Mesas arregladas con mantelería y platos, listas para comenzar la fiesta.';
+const KIDS_PARTY_ALT =
+  'Salón decorado para una fiesta infantil, globos y colores brillantes en las pequeñas mesas para niños.';
 
 const Img = styled.div`
   background-size: cover;
@@ -19,12 +24,59 @@ const Flex = styled.div`
   flex-wrap: wrap;
 `;
 
+const SEO_TITLE = 'Salón bugambilias, Fiestas y Eventos Sociales en Querétaro';
+const SEO_DESCRIPTION = `
+Contamos con servicio de Parrilla, Sala lounge, barra de alimentos, luz y sonido, manteleria,
+servicio de cocina, inflables, juegos infantiles y todo para tu fiesta.
+`;
+
 const Index = () => (
   <Fragment>
-    <Head>
-      <title>Salón bugambilias</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
+    <NextSeo
+      config={{
+        title: SEO_TITLE,
+        description: SEO_DESCRIPTION,
+        openGraph: {
+          url: 'https://bugambilias.party/',
+          title: SEO_TITLE,
+          description: SEO_DESCRIPTION,
+          images: [
+            {
+              url: PREMISES_PICTURE,
+              width: 650,
+              height: 432,
+              alt: PREMISES_ALT,
+            },
+            {
+              url: KIDS_PARTY_ALT,
+              width: 650,
+              height: 432,
+              alt: KIDS_PARTY_ALT,
+            },
+          ],
+        },
+      }}
+    />
+    <LocalBusinessJsonLd
+      type="EventVenue"
+      id="https://bugambilias.party"
+      name="Salón bugambilias"
+      description={SEO_TITLE}
+      url="https://bugambilias.party"
+      telephone="+524423138637"
+      address={{
+        streetAddress: 'Senda de los recuerdos 119',
+        addressLocality: 'Santiago de Querétaro',
+        addressRegion: 'Qro',
+        postalCode: '776060',
+        addressCountry: 'MX',
+      }}
+      geo={{
+        latitude: '20.597256',
+        longitude: '-100.343215',
+      }}
+      images={[PREMISES_PICTURE, KIDS_PARTY_PICTURE, WEDDING_PICTURE]}
+    />
     <Content>
       <NavigationHeader color="#fff" />
       <ImageFade />
@@ -69,10 +121,10 @@ const Index = () => (
               width={{ md: '50%', xs: '100%' }}
               height={{ md: '400px', xs: '300px' }}
             >
-              <Img src={premisesPicture} />
+              <Img src={PREMISES_PICTURE} alt={PREMISES_ALT} />
             </Box>
             <Box width={{ md: '50%', xs: '100%' }} height={{ md: '400px', xs: '300px' }}>
-              <Img src={kidsPartyPicture} />
+              <Img src={KIDS_PARTY_PICTURE} alt={PREMISES_PICTURE} />
             </Box>
           </Flex>
         </section>
