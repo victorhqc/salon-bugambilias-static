@@ -5,7 +5,6 @@
     "dev": "next",
     "build": "NODE_ENV=production next build",
     "start": "next start",
-    "lambda": "NODE_ENV=production node server.js",
     "eslint": "eslint src",
     "test": "jest",
     "deploy": "rm -rf .next/ && NODE_ENV=production serverless deploy --aws-profile=bugambilias-party",
@@ -35,6 +34,7 @@
     "webp-loader": "^0.4.0"
   },
   "devDependencies": {
+    "compression-webpack-plugin": "^2.0.0",
     "eslint": "^5.3.0",
     "eslint-config-healthier": "^1.0.2",
     "eslint-config-react-tools": "1.x.x",
