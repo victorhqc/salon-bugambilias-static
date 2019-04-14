@@ -4,16 +4,16 @@ provider:
   runtime: nodejs8.10
   profile: bugambilias-party
   region: us-east-1
-  stage: prod
 
 plugins:
   - serverless-nextjs-plugin
+  - serverless-api-compression
 
 custom:
+  contentCompression: 100
   defaultStage: prod
   serverless-nextjs:
     nextConfigDir: "./"
-    assetsBucketName: "bugambilias-party"
 
 package:
   exclude:

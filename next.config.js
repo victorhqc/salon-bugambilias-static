@@ -1,6 +1,6 @@
 const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
-const CompressionPlugin = require('compression-webpack-plugin');
+// const CompressionPlugin = require('compression-webpack-plugin');
 const { parsed: localEnv } = require('dotenv').config();
 
 const isProduction = () => process.env.NODE_ENV === 'production';
@@ -10,10 +10,19 @@ const webpack = require('webpack');
 
 let options = {};
 
+const getBucketName = () => {
+  switch (process.env.stage) {
+    case 'staging':
+      return 'bugambilias-party-staging';
+    default:
+      return 'bugambilias-party';
+  }
+};
+
 if (isProduction() && !isLocal()) {
   options = {
     target: 'serverless',
-    assetPrefix: 'https://bugambilias-party.s3.amazonaws.com',
+    assetPrefix: `https://${getBucketName()}.s3.amazonaws.com`,
   };
 }
 
@@ -30,13 +39,13 @@ module.exports = withPlugins(
   {
     webpack(config) {
       config.plugins.push(new webpack.EnvironmentPlugin(localEnv));
-      config.plugins.push(
-        new CompressionPlugin({
-          algorithm: 'gzip',
-          test: /\.js(\?.*)?$/i,
-        })
-      );
-      // TODO: Enable this when lambdas are in Node 11.7 or later.
+      // config.plugins.push(
+      //   new CompressionPlugin({
+      //     algorithm: 'gzip',
+      //     test: /\.js(\?.*)?$/i,
+      //   })
+      // );
+
       // config.plugins.push(new CompressionPlugin({
       //   filename: '[path].br[query]',
       //   algorithm: 'brotliCompress',
