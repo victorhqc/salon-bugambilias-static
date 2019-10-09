@@ -10,19 +10,19 @@ const webpack = require('webpack');
 
 let options = {};
 
-const getBucketName = () => {
-  switch (process.env.stage) {
-    case 'staging':
-      return 'bugambilias-party-staging';
-    default:
-      return 'bugambilias-party';
-  }
-};
+// const getBucketName = () => {
+//   switch (process.env.stage) {
+//     case 'staging':
+//       return 'bugambilias-party-staging';
+//     default:
+//       return 'bugambilias-party';
+//   }
+// };
 
 if (isProduction() && !isLocal()) {
   options = {
     target: 'serverless',
-    assetPrefix: `https://${getBucketName()}.s3.amazonaws.com`,
+    // assetPrefix: `https://${getBucketName()}.s3.amazonaws.com`,
   };
 }
 

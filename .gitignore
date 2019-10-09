@@ -8,3 +8,5 @@ sls-next-build
 .DS_Store
 
 .env
+
+.serverless_nextjs
