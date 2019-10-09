@@ -22,16 +22,15 @@ export default class UserAgentSingleton {
   }
 
   isMobileDevice() {
-    // const userAgent = this.get();
+    const userAgent = this.get();
 
     if (!process.browser) {
       return false;
     }
 
     if (
-      window.innerWidth <= 400
-      // userAgent.device &&
-      // (userAgent.device.type === 'mobile' || userAgent.device.type === 'wearable')
+      userAgent.device &&
+      (userAgent.device.type === 'mobile' || userAgent.device.type === 'wearable')
     ) {
       return true;
     }
