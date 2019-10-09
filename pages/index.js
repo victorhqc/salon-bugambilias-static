@@ -5,12 +5,11 @@ import NextSeo, { LocalBusinessJsonLd } from 'next-seo';
 import { Content, Footer, NavigationHeader, ImageFade, PageWrapper } from '../components';
 
 import PREMISES_PICTURE from '../images/premises/mobile/premises_1.jpg';
-import KIDS_PARTY_PICTURE from '../images/kids_party/mobile/kids_party_7.jpg';
+import WEDDING_INDEX_PICTURE from '../images/wedding/mobile/wedding_1.jpg';
 import WEDDING_PICTURE from '../images/wedding/mobile/wedding_4.jpg';
 
 const PREMISES_ALT = 'Mesas arregladas con mantelería y platos, listas para comenzar la fiesta.';
-const KIDS_PARTY_ALT =
-  'Salón decorado para una fiesta infantil, globos y colores brillantes en las pequeñas mesas para niños.';
+const WEDDING_INDEX_PICTURE_ALT = 'Contamos con servicio de bodas';
 
 const Img = styled.div`
   background-size: cover;
@@ -48,10 +47,10 @@ const Index = () => (
               alt: PREMISES_ALT,
             },
             {
-              url: KIDS_PARTY_ALT,
+              url: WEDDING_INDEX_PICTURE,
               width: 650,
               height: 432,
-              alt: KIDS_PARTY_ALT,
+              alt: WEDDING_INDEX_PICTURE_ALT,
             },
           ],
         },
@@ -75,7 +74,7 @@ const Index = () => (
         latitude: '20.597256',
         longitude: '-100.343215',
       }}
-      images={[PREMISES_PICTURE, KIDS_PARTY_PICTURE, WEDDING_PICTURE]}
+      images={[PREMISES_PICTURE, WEDDING_INDEX_PICTURE, WEDDING_PICTURE]}
     />
     <Content>
       <NavigationHeader color="#fff" />
@@ -124,7 +123,7 @@ const Index = () => (
               <Img src={PREMISES_PICTURE} alt={PREMISES_ALT} />
             </Box>
             <Box width={{ md: '50%', xs: '100%' }} height={{ md: '400px', xs: '300px' }}>
-              <Img src={KIDS_PARTY_PICTURE} alt={PREMISES_PICTURE} />
+              <Img src={WEDDING_INDEX_PICTURE} alt={WEDDING_INDEX_PICTURE_ALT} />
             </Box>
           </Flex>
         </section>

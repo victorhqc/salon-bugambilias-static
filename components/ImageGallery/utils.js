@@ -9,7 +9,7 @@ const KNOWN_GALLERIES = {
     picturesLength: 13,
   },
   premises: {
-    picturesLength: 9,
+    picturesLength: 5,
   },
 };
 

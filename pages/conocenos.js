@@ -26,7 +26,6 @@ const supportTextMargin = { xs: '50px 0 0 0' };
 const Servicios = ({ isMobileDevice }) => {
   const height = isMobileDevice ? '300px' : '600px';
   const imagesType = isMobileDevice ? 'mobile' : 'desktop';
-  const kidsdPartyImages = useMemo(() => loadGalleryImages('kids_party', imagesType), []);
   const weddingImages = useMemo(() => loadGalleryImages('wedding', imagesType), []);
   const premisesImages = useMemo(() => loadGalleryImages('premises', imagesType), []);
 
@@ -85,18 +84,6 @@ Paquetes todo incluido:
             </Typography>
             <Box mt={{ xs: 15, md: 30 }}>
               <ImageGallery images={premisesImages} height={height} nextDelay={2000} />
-            </Box>
-          </section>
-          <section>
-            <Typography variant="h2" color="primary" m={supportTextMargin}>
-              Eventos infantiles
-            </Typography>
-            <Typography as="p" width={{ md: '65%' }}>
-              Todo lo que necesitas para eventos infantiles. Arreglo de globos, juegos infantiles y
-              juegos inflables.
-            </Typography>
-            <Box mt={{ xs: 15, md: 30 }}>
-              <ImageGallery images={kidsdPartyImages} height={height} />
             </Box>
           </section>
           <section>
