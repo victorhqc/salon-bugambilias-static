@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { styled, Typography, Box } from '@smooth-ui/core-sc';
-import NextSeo, { LocalBusinessJsonLd } from 'next-seo';
+import { NextSeo, LocalBusinessJsonLd } from 'next-seo';
 
 import { Content, Footer, NavigationHeader, ImageFade, PageWrapper } from '../components';
 
@@ -32,28 +32,26 @@ servicio de cocina, inflables, juegos infantiles y todo para tu fiesta.
 const Index = () => (
   <Fragment>
     <NextSeo
-      config={{
+      title={SEO_TITLE}
+      description={SEO_DESCRIPTION}
+      openGraph={{
+        url: 'https://bugambilias.party/',
         title: SEO_TITLE,
         description: SEO_DESCRIPTION,
-        openGraph: {
-          url: 'https://bugambilias.party/',
-          title: SEO_TITLE,
-          description: SEO_DESCRIPTION,
-          images: [
-            {
-              url: PREMISES_PICTURE,
-              width: 650,
-              height: 432,
-              alt: PREMISES_ALT,
-            },
-            {
-              url: WEDDING_INDEX_PICTURE,
-              width: 650,
-              height: 432,
-              alt: WEDDING_INDEX_PICTURE_ALT,
-            },
-          ],
-        },
+        images: [
+          {
+            url: PREMISES_PICTURE,
+            width: 650,
+            height: 432,
+            alt: PREMISES_ALT,
+          },
+          {
+            url: WEDDING_INDEX_PICTURE,
+            width: 650,
+            height: 432,
+            alt: WEDDING_INDEX_PICTURE_ALT,
+          },
+        ],
       }}
     />
     <LocalBusinessJsonLd

@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import React from 'react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { GA_TRACKING_ID } from '../utils';
 
-export default class MyDocument extends Document {
+class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
@@ -18,10 +18,10 @@ export default class MyDocument extends Document {
       return {
         ...initialProps,
         styles: (
-          <Fragment>
+          <>
             {initialProps.styles}
             {sheet.getStyleElement()}
-          </Fragment>
+          </>
         ),
       };
     } finally {
@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html>
+      <Html>
         <Head>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
@@ -50,7 +50,9 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
+
+export default MyDocument;

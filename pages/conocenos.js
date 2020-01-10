@@ -2,7 +2,7 @@ import React, { Fragment, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { styled, Typography, Box, Breakpoint } from '@smooth-ui/core-sc';
-import NextSeo from 'next-seo';
+import { NextSeo } from 'next-seo';
 
 import {
   Content,
@@ -32,9 +32,8 @@ const Servicios = ({ isMobileDevice }) => {
   return (
     <Fragment>
       <NextSeo
-        config={{
-          title: 'Salón bugambilias, conócenos!',
-          description: `
+        title="Salón bugambilias, conócenos!"
+        description={`
 Paquetes todo incluido:
 - Fiesta infantil
 - XV años
@@ -46,8 +45,7 @@ Paquetes todo incluido:
 - Taquizas (tacos al pastor)
 - Sala Lounge
 - Rocolas
-`,
-        }}
+`}
       />
       <Head>
         <title>Salón bugambilias - Acerca de</title>

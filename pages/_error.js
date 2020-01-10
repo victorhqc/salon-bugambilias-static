@@ -47,7 +47,7 @@ class Error extends Component {
 }
 
 Error.propTypes = {
-  statusCode: PropTypes.string,
+  statusCode: PropTypes.number,
 };
 
 const Error404 = () => (
