@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { styled, Typography, Box } from '@smooth-ui/core-sc';
-import NextSeo, { LocalBusinessJsonLd } from 'next-seo';
+import { NextSeo, LocalBusinessJsonLd } from 'next-seo';
 
 import { Content, Footer, NavigationHeader, ImageFade, PageWrapper } from '../components';
 

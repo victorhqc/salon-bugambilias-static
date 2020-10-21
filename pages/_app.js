@@ -3,7 +3,7 @@ import App, { Container } from 'next/app';
 import Router from 'next/router';
 import Head from 'next/head';
 import { ThemeProvider, Normalize } from '@smooth-ui/core-sc';
-import NextSeo from 'next-seo';
+import { NextSeo } from 'next-seo';
 import { UserAgent, GlobalStyle } from '../components';
 import { UserAgentSingleton, pageview, theme } from '../utils';
 import SEO from '../next-seo.config';

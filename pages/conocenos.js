@@ -2,7 +2,7 @@ import React, { Fragment, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { styled, Typography, Box, Breakpoint } from '@smooth-ui/core-sc';
-import NextSeo from 'next-seo';
+import { NextSeo } from 'next-seo';
 
 import {
   Content,
