@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react';
 import { styled, Typography, Box } from '@smooth-ui/core-sc';
-import NextSeo, { LocalBusinessJsonLd } from 'next-seo';
+import { NextSeo, LocalBusinessJsonLd } from 'next-seo';
 
 import { Content, Footer, NavigationHeader, ImageFade, PageWrapper } from '../components';
 
-import PREMISES_PICTURE from '../images/premises/mobile/premises_1.jpg';
-import WEDDING_INDEX_PICTURE from '../images/wedding/mobile/wedding_1.jpg';
-import WEDDING_PICTURE from '../images/wedding/mobile/wedding_4.jpg';
-
+const PREMISES_PICTURE = '/premises/mobile/premises_1.jpg';
+const WEDDING_INDEX_PICTURE = '/wedding/mobile/wedding_1.jpg';
+const WEDDING_PICTURE = '/wedding/mobile/wedding_4.jpg';
 const PREMISES_ALT = 'Mesas arregladas con mantelería y platos, listas para comenzar la fiesta.';
 const WEDDING_INDEX_PICTURE_ALT = 'Contamos con servicio de bodas';
 

@@ -39,5 +39,5 @@ export const SERVICES = [
   // },
 ].map(service => ({
   ...service,
-  src: require(`../../images/icons/${service.src}`),
+  src: `/icons/${service.src}`,
 }));

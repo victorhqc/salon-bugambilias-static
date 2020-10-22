@@ -30,13 +30,13 @@ const ImageFader = ({ images, isMobileDevice }) => {
   return (
     <Wrapper data-testid="image-fader">
       <Img
-        isMobileDevice={isMobileDevice}
+        data-is-mobile={isMobileDevice}
         data-testid="ssr-placeholder"
         {...state.visibleImages[0]}
       />
       {transitions.map(({ item, props, key }) => (
         <Img
-          isMobileDevice={isMobileDevice}
+          data-is-mobile={isMobileDevice}
           src={item.src}
           alt={item.alt}
           key={key}
@@ -44,7 +44,7 @@ const ImageFader = ({ images, isMobileDevice }) => {
         />
       ))}
       <Img
-        isMobileDevice={isMobileDevice}
+        data-is-mobile={isMobileDevice}
         data-testid="next-image"
         invisible="true"
         {...state.visibleImages[1]}

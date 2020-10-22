@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { GA_TRACKING_ID } from '../utils';
 
@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html>
+      <Html>
         <Head>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
@@ -50,7 +50,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
