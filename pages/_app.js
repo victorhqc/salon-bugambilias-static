@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import Router from 'next/router';
 import Head from 'next/head';
 import { ThemeProvider, Normalize } from '@smooth-ui/core-sc';
@@ -36,7 +36,7 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
+      <>
         <NextSeo config={SEO} />
         <Head>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -48,7 +48,7 @@ class MyApp extends App {
             <Component {...pageProps} />
           </ThemeProvider>
         </UserAgent.Provider>
-      </Container>
+      </>
     );
   }
 }
