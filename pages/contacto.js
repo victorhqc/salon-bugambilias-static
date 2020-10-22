@@ -51,7 +51,7 @@ const Contacto = ({ isMobileDevice }) => {
           title: 'Salón bugambilias, contáctanos',
           description: `
 Llámanos de lunes a viernes por teléfono o whatsapp al 442 313 8637 o por correo electrónico
-eventosbugambilias19@gmail.com.
+israel_bugam@hotmail.com.
 
 Estamos ubicados en Senda de los recuerdos 119, Milenio III, Querétaro, Qro 776060
 `,
@@ -84,10 +84,10 @@ Estamos ubicados en Senda de los recuerdos 119, Milenio III, Querétaro, Qro 776
             <LinkWrapper>
               <Img src="/icons/email.svg" alt="Correo electrónico" width={60} />
               <Link
-                href="mailto:eventosbugambilias19@gmail.com?subject=Pregunta sobre Salón Bugambilias"
+                href="mailto:israel_bugam@hotmail.com?subject=Pregunta sobre Salón Bugambilias"
                 onClick={onEmail}
               >
-                eventosbugambilias19@gmail.com
+                israel_bugam@hotmail.com
               </Link>
             </LinkWrapper>
           </Box>

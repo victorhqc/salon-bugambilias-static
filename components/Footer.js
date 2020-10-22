@@ -12,8 +12,8 @@ const FooterComponent = () => {
         </p>
         <p>
           <b>Correo electrónico: </b>
-          <Link href="mailto:eventosbugambilias19@gmail.com?subject=Pregunta sobre Salón Bugambilias">
-            eventosbugambilias19@gmail.com
+          <Link href="mailto:israel_bugam@hotmail.com?subject=Pregunta sobre Salón Bugambilias">
+            israel_bugam@hotmail.com
           </Link>
         </p>
       </Box>
