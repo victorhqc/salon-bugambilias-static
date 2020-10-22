@@ -15,9 +15,6 @@ import {
 } from '../components';
 import { event } from '../utils';
 
-import whatsappLogo from '../images/icons/whatsapp_logo.svg';
-import email from '../images/icons/email.svg';
-
 const Link = styled.a`
   color: inherit;
 `;
@@ -77,7 +74,7 @@ Estamos ubicados en Senda de los recuerdos 119, Milenio III, Querétaro, Qro 776
           </p>
           <Box mb={{ md: '20px', xs: '10px' }}>
             <LinkWrapper>
-              <Img src={whatsappLogo} alt="Whatsapp Logo" width={60} />
+              <Img src="/icons/whatsapp_logo.svg" alt="Whatsapp Logo" width={60} />
               <Link href="https://wa.me/5214423138637" onClick={onWhatsapp}>
                 442 313 8637
               </Link>
@@ -85,7 +82,7 @@ Estamos ubicados en Senda de los recuerdos 119, Milenio III, Querétaro, Qro 776
           </Box>
           <Box mb={{ md: '20px', xs: '10px' }}>
             <LinkWrapper>
-              <Img src={email} alt="Correo electrónico" width={60} />
+              <Img src="/icons/email.svg" alt="Correo electrónico" width={60} />
               <Link
                 href="mailto:eventosbugambilias19@gmail.com?subject=Pregunta sobre Salón Bugambilias"
                 onClick={onEmail}

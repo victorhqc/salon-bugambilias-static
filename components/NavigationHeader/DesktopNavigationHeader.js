@@ -39,11 +39,7 @@ const DesktopNavigationHeader = ({ color, router, ...props }) => {
       <Nav style={calculateNavStyle(springProps, menuColor)}>
         <Link href="/" passHref>
           <a>
-            <Img
-              alt="Salón bugambilias"
-              src={require('../../images/logo.png')}
-              style={calculateImgStyle(springProps)}
-            />
+            <Img alt="Salón bugambilias" src="/logo.png" style={calculateImgStyle(springProps)} />
           </a>
         </Link>
         {PAGES.map((page, index) => (

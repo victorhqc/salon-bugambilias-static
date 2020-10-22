@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import nextIcon from '../../images/icons/next.svg';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -27,7 +26,7 @@ const GalleryButton = styled.button`
 
 const Icon = styled.div`
   background-position: 0 0;
-  background-image: url(${nextIcon});
+  background-image: url(/icons/next.svg);
   background-size: cover;
   width: 50px;
   height: 50px;
